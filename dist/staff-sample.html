@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A GLOSS hotel staff coursefolio sample with housekeeping, banquet service, guest support, and a printable classic résumé.">
+  <title>Neha Kulkarni · GLOSS Hotel Staff Coursefolio</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f5f1e7;
+      --white: #fffdf6;
+      --ink: #2e281e;
+      --muted: #5f584c;
+      --wood: #3c2c23;
+      --brown: #824a32;
+      --lime: #e6eaad;
+      --line: #d8cebc;
+      --serif: "Baskervville", Georgia, serif;
+      --sans: "Instrument Sans", system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-padding-block-start: 1rem; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 1rem/1.6 var(--sans); }
+    a { color: inherit; text-underline-offset: .25em; }
+    button, summary { font: inherit; }
+    :focus-visible { outline: 3px solid #a25830; outline-offset: 4px; }
+    img { display: block; max-width: 100%; }
+    [hidden] { display: none !important; }
+    h1, h2, h3, p, figure, dl, dd { margin: 0; }
+    h1, h2, h3 { font: 400 1.8rem/1.1 var(--serif); }
+    h2 { font-size: clamp(2.45rem, 5vw, 4.15rem); letter-spacing: -.045em; }
+    h3 { font-size: clamp(1.55rem, 3vw, 2rem); }
+    .shell { width: min(72.5rem, calc(100% - clamp(2rem, 8vw, 7rem))); margin-inline: auto; }
+    .skip { position: absolute; inset: .35rem auto auto .5rem; z-index: 1; padding: .5rem .8rem; background: var(--white); transform: translateY(-150%); }
+    .skip:focus { transform: none; }
+    .masthead { display: flex; justify-content: space-between; align-items: center; gap: .75rem; min-height: 4.25rem; }
+    .brand { display: flex; align-items: baseline; gap: .7rem; }
+    .wordmark { font-weight: 900; font-size: 1.7rem; letter-spacing: -.075em; line-height: 1; }
+    .kicker { font-size: .72rem; font-weight: 750; letter-spacing: .115em; text-transform: uppercase; }
+    .brand .kicker { color: var(--muted); }
+    .masthead nav { display: flex; flex-wrap: wrap; justify-content: end; gap: 0 1rem; font-size: .84rem; font-weight: 650; }
+    .masthead nav a { padding-block: .35rem; text-decoration: none; }
+    .masthead nav a:hover { text-decoration: underline; }
+    .hero { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); background: var(--wood); color: var(--white); }
+    .intro { align-self: center; padding: clamp(2rem, 5.5vw, 4.6rem); }
+    .intro .kicker { color: var(--lime); }
+    .intro h1 { font-size: clamp(3.1rem, 6.9vw, 7.45rem); letter-spacing: -.068em; margin: .6rem 0 1rem; }
+    .role { font-size: clamp(1rem, 2.2vw, 1.23rem); font-weight: 700; }
+    .bio { margin: .8rem 0 1.35rem; color: #eee1cc; max-width: 38ch; }
+    .portrait { position: relative; min-height: 28rem; background: #887857; }
+    .portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 27%; }
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: .65rem; min-height: 2.85rem; border: 1px solid var(--wood); border-radius: .2rem; padding: .55rem 1rem; background: var(--wood); color: var(--white); text-decoration: none; font-weight: 750; cursor: pointer; }
+    .intro .button { border-color: var(--lime); background: var(--lime); color: var(--wood); }
+    .intro .button:focus-visible { outline-color: var(--lime); }
+    .facts { display: grid; grid-template-columns: 1fr 1.3fr 1fr; background: var(--white); border: 1px solid var(--line); border-top: 0; }
+    .facts div { padding: .8rem clamp(.8rem, 2.5vw, 1.45rem); }
+    .facts div + div { border-inline-start: 1px solid var(--line); }
+    .facts dt { color: var(--muted); margin-bottom: .2rem; }
+    .facts dd { font-size: .94rem; font-weight: 650; }
+    .section { padding-block: clamp(3.2rem, 7vw, 5.75rem); }
+    .section-title { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: .75rem 1.2rem; margin-bottom: 1.5rem; }
+    .section-title > p { max-width: 35ch; color: var(--muted); }
+    .filters { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.2rem; }
+    .filters button { border: 1px solid #ac9d8a; border-radius: 10rem; padding: .45rem .95rem; min-height: 2.7rem; background: transparent; color: var(--ink); font-size: .88rem; font-weight: 650; cursor: pointer; }
+    .filters button[aria-pressed="true"] { border-color: var(--wood); background: var(--wood); color: var(--white); }
+    .work-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1rem, 3vw, 1.65rem); }
+    .work-card { min-width: 0; border: 1px solid var(--line); background: var(--white); }
+    .work-photo { position: relative; overflow: hidden; aspect-ratio: 3 / 2; background: #c4b39a; }
+    .work-photo img { position: absolute; width: 200%; height: 200%; max-width: none; top: var(--y, 0); left: var(--x, 0); }
+    .top-right { --x: -100%; }
+    .bottom-left { --y: -100%; }
+    .bottom-right { --x: -100%; --y: -100%; }
+    .work-copy { padding: clamp(1rem, 3vw, 1.55rem); }
+    .work-copy .kicker { color: var(--brown); margin-bottom: .35rem; }
+    .work-copy h3 { margin-bottom: .4rem; }
+    .work-copy > p:last-of-type { color: var(--muted); }
+    details { border-top: 1px solid var(--line); padding-top: .7rem; margin-top: .9rem; }
+    summary { cursor: pointer; font-weight: 750; }
+    details ul { padding-left: 1.25rem; margin-block: .55rem 0; }
+    details p { margin-top: .55rem; }
+    details li + li { margin-top: .28rem; }
+    .training-band { border-block: 1px solid #cdd1b6; background: #e8ebd9; }
+    .training-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1rem, 4vw, 2.85rem); }
+    .training-grid article { border-top: 2px solid #636d4b; padding-top: .75rem; }
+    .training-grid article > p { margin-top: .4rem; }
+    .training-grid details { border-color: #aeb39b; }
+    .resume-toolbar { align-items: center; }
+    .resume-paper { border: 1px solid var(--line); background: var(--white); padding: clamp(1.1rem, 4.5vw, 3.1rem); }
+    .cv-heading { display: flex; align-items: center; gap: 1rem; padding-bottom: 1rem; border-bottom: 2px solid var(--ink); }
+    .cv-heading img { width: 4.7rem; height: 5.7rem; object-fit: cover; object-position: center 25%; }
+    .cv-heading h3 { font-size: clamp(2rem, 4vw, 3rem); margin-block: .24rem; }
+    .cv-heading .kicker { color: var(--brown); }
+    .cv-row { display: grid; grid-template-columns: minmax(7.8rem, 22%) 1fr; gap: .35rem 1.1rem; padding-block: .78rem; }
+    .cv-row + .cv-row { border-top: 1px solid var(--line); }
+    .cv-row h4 { margin: .13rem 0 0; font-size: .85rem; }
+    footer { border-top: 1px solid var(--line); padding-block: 1rem 1.8rem; color: var(--muted); font-size: .83rem; }
+    @media (max-width: 760px) {
+      .hero { grid-template-columns: 1fr; }
+      .portrait { min-height: clamp(19rem, 67vw, 31rem); }
+      .section-title { align-items: start; }
+    }
+    @media (max-width: 550px) {
+      .brand .kicker { display: none; }
+      .masthead nav { gap: 0 .6rem; font-size: .77rem; }
+      .facts, .work-grid, .training-grid, .cv-row { grid-template-columns: 1fr; }
+      .facts div { display: flex; flex-wrap: wrap; gap: .25rem .75rem; align-items: baseline; }
+      .facts div + div { border-inline-start: 0; border-top: 1px solid var(--line); }
+      .facts dt { margin: 0; }
+    }
+    @page { size: A4; margin: 14mm; }
+    @media print {
+      body { color: #000; background: #fff; font: 10.5pt/1.4 var(--sans); }
+      header, footer, .skip, main > :not(#resume), .resume-toolbar { display: none !important; }
+      #resume { width: 100%; padding: 0; }
+      .resume-paper { border: 0; padding: 0; background: #fff; }
+      .cv-heading h3 { font-size: 24pt; }
+      .cv-row { grid-template-columns: 8rem 1fr; break-inside: avoid; padding-block: .55rem; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="masthead shell">
+    <div class="brand"><span class="wordmark">GLOSS</span><span class="kicker">Hotel management</span></div>
+    <nav aria-label="Coursefolio sections">
+      <a href="#work">Service work</a>
+      <a href="#training">Training</a>
+      <a href="#resume">Classic résumé</a>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="shell" aria-labelledby="staff-name">
+      <div class="hero">
+        <div class="intro">
+          <p class="kicker">Hotel Staff coursefolio · Fictional sample</p>
+          <h1 id="staff-name">Neha Kulkarni</h1>
+          <p class="role">Hotel Service Associate · Pune, India</p>
+          <p class="bio">I prepare guest rooms and event spaces, follow up on requests, and leave clear notes so the next shift can pick up where I left off.</p>
+          <a class="button" href="#work">Explore service work <span aria-hidden="true">↓</span></a>
+        </div>
+        <figure class="portrait"><img src="/samples/staff-portrait.jpg" alt="Sample portrait of Neha Kulkarni in an olive hotel service uniform" fetchpriority="high"></figure>
+      </div>
+      <dl class="facts">
+        <div><dt class="kicker">Primary department</dt><dd>Housekeeping</dd></div>
+        <div><dt class="kicker">Training rotations</dt><dd>Banquets · Food &amp; beverage service</dd></div>
+        <div><dt class="kicker">Languages</dt><dd>Marathi · Hindi · English</dd></div>
+      </dl>
+    </section>
+
+    <section class="section shell" id="work" aria-labelledby="work-title">
+      <div class="section-title">
+        <h2 id="work-title">Hotel service work</h2>
+        <p>Open each checklist to see the details I verify before finishing a task.</p>
+      </div>
+      <div class="filters" role="group" aria-label="Filter hotel service work" hidden>
+        <button type="button" data-filter="all" aria-pressed="true">All work</button>
+        <button type="button" data-filter="housekeeping" aria-pressed="false">Housekeeping</button>
+        <button type="button" data-filter="banquets" aria-pressed="false">Banquets</button>
+        <button type="button" data-filter="food-service" aria-pressed="false">Food &amp; beverage</button>
+        <button type="button" data-filter="guest-support" aria-pressed="false">Guest support</button>
+      </div>
+      <div class="work-grid">
+        <article class="work-card" data-work="housekeeping">
+          <div class="work-photo"><img src="/samples/staff-service-work.jpg" alt="Prepared hotel guest room with fresh bedding, aligned pillows, and a clear bedside table" loading="lazy"></div>
+          <div class="work-copy">
+            <p class="kicker">Housekeeping</p>
+            <h3>Guest-room turnover</h3>
+            <p>Reset a departure room and report its status for the next arrival.</p>
+            <details><summary>View room checklist</summary><ul>
+              <li>Replace used linen, replenish amenities, and check key surfaces and the bathroom.</li>
+              <li>Flag maintenance issues and report the room status after the final inspection.</li>
+            </ul></details>
+          </div>
+        </article>
+        <article class="work-card" data-work="banquets">
+          <div class="work-photo top-right"><img src="/samples/staff-service-work.jpg" alt="Hotel banquet table set with matching plates, aligned cutlery, and folded napkins" loading="lazy"></div>
+          <div class="work-copy">
+            <p class="kicker">Banquet rotation</p>
+            <h3>Event room setup</h3>
+            <p>Set tables to the agreed floor plan before the banquet team opens the room.</p>
+            <details><summary>View setup checklist</summary><ul>
+              <li>Match the cover count and arrange linen, place settings, and water stations.</li>
+              <li>Walk the guest routes to check clearance and raise last-minute changes with the banquet captain.</li>
+            </ul></details>
+          </div>
+        </article>
+        <article class="work-card" data-work="food-service">
+          <div class="work-photo bottom-left"><img src="/samples/staff-service-work.jpg" alt="Hotel room-service tray with a covered plate, coffee cup, and folded napkin" loading="lazy"></div>
+          <div class="work-copy">
+            <p class="kicker">Food &amp; beverage rotation</p>
+            <h3>Room-service tray setup</h3>
+            <p>Prepare and check a tray with the service team before dispatch.</p>
+            <details><summary>View tray checklist</summary><ul>
+              <li>Match the items, covers, cutlery, and condiments to the order.</li>
+              <li>Check any dietary notes with the service lead and confirm the delivery handoff.</li>
+            </ul></details>
+          </div>
+        </article>
+        <article class="work-card" data-work="guest-support">
+          <div class="work-photo bottom-right"><img src="/samples/staff-service-work.jpg" alt="Hotel service trolley in a corridor with folded towels and guest amenities" loading="lazy"></div>
+          <div class="work-copy">
+            <p class="kicker">Guest support</p>
+            <h3>A guest-request round</h3>
+            <p>Restock the trolley and follow through on requests for towels or amenities.</p>
+            <details><summary>View handover checklist</summary><ul>
+              <li>Confirm the requested items and update the service log after delivery.</li>
+              <li>Give the next shift any open request, the responsible team, and the promised follow-up time.</li>
+            </ul></details>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <div class="training-band">
+      <section class="section shell" id="training" aria-labelledby="training-title">
+        <div class="section-title"><h2 id="training-title">Training &amp; service scenarios</h2></div>
+        <div class="training-grid">
+          <article>
+            <h3>Hotel operations placement</h3>
+            <p>Housekeeping trainee · 2025. Supported room resets, linen control, and inspection handovers, with short rotations in banquets and food service.</p>
+            <details><summary>Practice scenario · A room fails its final check</summary><p>I’d keep the room pending, notify the supervisor and front desk, replace the missing items, then request a final recheck before the room is released.</p></details>
+          </article>
+          <article>
+            <h3>Hospitality operations training</h3>
+            <p>Certificate coursework · 2024–2025. Guest-room standards, equipment handling, service setup, guest communication, and safety reporting.</p>
+            <details><summary>Practice scenario · A spill just before doors open</summary><p>I’d alert the banquet captain, mark the affected area, and direct guests to a clear route while the designated team clears the spill. I’d check with the captain before reopening the walkway.</p></details>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <section class="section shell" id="resume" aria-labelledby="resume-title">
+      <div class="section-title resume-toolbar">
+        <h2 id="resume-title">Classic résumé</h2>
+        <button type="button" class="button" id="print-resume" hidden>Print / Save as PDF</button>
+      </div>
+      <article class="resume-paper" aria-label="Neha Kulkarni’s sample résumé">
+        <div class="cv-heading">
+          <img src="/samples/staff-portrait.jpg" alt="Neha Kulkarni’s sample hotel staff headshot" loading="lazy">
+          <div><p class="kicker">Fictional sample résumé</p><h3>Neha Kulkarni</h3><p>Hotel Service Associate · Pune, India</p></div>
+        </div>
+        <section class="cv-row"><h4>Profile</h4><p>Early-career hotel service associate with hands-on housekeeping training and supervised banquet and food service rotations.</p></section>
+        <section class="cv-row"><h4>Experience</h4><p><strong>Hotel operations trainee · 2025</strong><br>Supported room turnover, linen and amenity restocking, guest requests, banquet room setups, and shift handovers.</p></section>
+        <section class="cv-row"><h4>Training</h4><p><strong>Hospitality operations certificate coursework · 2024–2025</strong><br>Room inspection, safe equipment handling, food service setup, and service reporting.</p></section>
+        <section class="cv-row"><h4>Skills</h4><p>Guest-room preparation, stock checks, banquet setup, tray checks, request logs, and team handovers.</p></section>
+        <section class="cv-row"><h4>Languages</h4><p>Marathi, Hindi, English</p></section>
+        <section class="cv-row"><h4>Coursefolio</h4><p><a href="https://gloss-studio-editorial.sahdev-nishtha001.chatgpt.site/samples/staff">View the GLOSS hotel staff coursefolio and service checklists</a></p></section>
+      </article>
+    </section>
+  </main>
+  <footer class="shell">Neha Kulkarni, her placement, and the service scenarios are fictional. Images are illustrative.</footer>
+  <script>
+    const filters = document.querySelector('.filters');
+    const filterButtons = filters.querySelectorAll('[data-filter]');
+    const examples = document.querySelectorAll('[data-work]');
+    filters.hidden = false;
+    for (const button of filterButtons) {
+      button.addEventListener('click', () => {
+        const selected = button.dataset.filter;
+        for (const option of filterButtons) option.setAttribute('aria-pressed', String(option === button));
+        for (const example of examples) example.hidden = selected !== 'all' && example.dataset.work !== selected;
+      });
+    }
+    const printButton = document.getElementById('print-resume');
+    printButton.hidden = false;
+    printButton.addEventListener('click', () => window.print());
+  </script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A GLOSS receptionist coursefolio sample with front desk experience, guest-service scenarios, and a printable classic résumé.">
+  <title>Aditi Shah · GLOSS Receptionist Coursefolio</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f8f2e8;
+      --white: #fffaf3;
+      --ink: #35242e;
+      --muted: #675660;
+      --plum: #452835;
+      --plum-light: #f0e4e6;
+      --gold: #f0d4a5;
+      --line: #d9cbbf;
+      --serif: "DM Serif Text", Georgia, serif;
+      --sans: "Instrument Sans", system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-padding-block-start: 1rem; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 1rem/1.6 var(--sans); }
+    a { color: inherit; text-underline-offset: .2em; }
+    button, summary { font: inherit; }
+    :focus-visible { outline: 3px solid #9d5638; outline-offset: 4px; }
+    img { display: block; max-width: 100%; }
+    [hidden] { display: none !important; }
+    h1, h2, h3, p, figure, dl, dd { margin: 0; }
+    h1, h2, h3 { font: 400 1.8rem/1.12 var(--serif); }
+    h2 { font-size: clamp(2.4rem, 5.2vw, 4.15rem); letter-spacing: -.045em; }
+    h3 { font-size: clamp(1.45rem, 3vw, 1.9rem); }
+    .shell { width: min(72rem, calc(100% - clamp(2rem, 8vw, 7rem))); margin-inline: auto; }
+    .skip { position: absolute; top: .35rem; left: .5rem; z-index: 1; background: var(--white); padding: .5rem .8rem; transform: translateY(-150%); }
+    .skip:focus { transform: none; }
+    .masthead { display: flex; align-items: center; justify-content: space-between; gap: .8rem; min-height: 4.35rem; }
+    .brand { display: flex; align-items: baseline; gap: .65rem; }
+    .wordmark { font-weight: 900; font-size: 1.75rem; letter-spacing: -.075em; line-height: 1; }
+    .kicker { font-size: .72rem; font-weight: 750; text-transform: uppercase; letter-spacing: .115em; }
+    .brand .kicker { color: var(--muted); }
+    .masthead nav { display: flex; flex-wrap: wrap; gap: 0 1rem; justify-content: end; font-size: .85rem; font-weight: 650; }
+    .masthead nav a { padding-block: .35rem; text-decoration: none; }
+    .masthead nav a:hover { text-decoration: underline; }
+    .hero { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); background: var(--plum); color: var(--white); }
+    .intro { padding: clamp(2rem, 6.2vw, 5rem); align-self: center; }
+    .intro .kicker { color: var(--gold); }
+    .intro h1 { font-size: clamp(3.4rem, 7.9vw, 8.1rem); letter-spacing: -.067em; margin: .55rem 0 1rem; }
+    .base { font-size: clamp(1rem, 2vw, 1.25rem); font-weight: 700; }
+    .bio { max-width: 39ch; margin: .8rem 0 1.55rem; color: #efe2de; }
+    .portrait { position: relative; min-height: 27.5rem; background: #ab8b71; }
+    .portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 26%; }
+    .button { display: inline-flex; gap: .6rem; align-items: center; justify-content: center; min-height: 2.85rem; border: 1px solid var(--plum); border-radius: .2rem; padding: .55rem 1rem; background: var(--plum); color: var(--white); text-decoration: none; font-weight: 750; cursor: pointer; }
+    .intro .button { background: var(--gold); color: var(--plum); border-color: var(--gold); }
+    .intro .button:focus-visible { outline-color: var(--gold); }
+    .facts { display: grid; grid-template-columns: 1fr 1.25fr 1fr; background: var(--white); border: 1px solid var(--line); border-top: 0; }
+    .facts div { padding: .8rem clamp(.8rem, 2.5vw, 1.5rem); }
+    .facts div + div { border-inline-start: 1px solid var(--line); }
+    .facts dt { color: var(--muted); margin-bottom: .2rem; }
+    .facts dd { font-size: .93rem; font-weight: 650; }
+    .section { padding-block: clamp(3.2rem, 7vw, 5.7rem); }
+    .section-title { margin-bottom: 1.5rem; }
+    .desk-layout { display: grid; grid-template-columns: 1.15fr 1fr; align-items: stretch; gap: clamp(1.1rem, 4vw, 2.75rem); }
+    .lobby { min-height: 22rem; position: relative; background: #a18e7b; }
+    .lobby img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .desk-list { padding: 0; margin: 0; list-style: none; }
+    .desk-list li { padding-block: .9rem; border-top: 1px solid var(--line); }
+    .desk-list p { color: var(--muted); margin-top: .35rem; }
+    .scenario-band { background: var(--plum-light); border-block: 1px solid #dccace; }
+    .scenario-layout { display: grid; grid-template-columns: .9fr 1.25fr; gap: clamp(1.5rem, 5vw, 4.5rem); }
+    .scenario-layout > div:first-child p { margin-top: .75rem; color: var(--muted); max-width: 33ch; }
+    details { background: var(--white); border: 1px solid var(--line); }
+    details + details { margin-top: .7rem; }
+    summary { padding: .85rem 1.1rem; color: var(--plum); font-weight: 750; cursor: pointer; }
+    summary:hover { background: #f9eee7; }
+    details[open] summary { border-bottom: 1px solid var(--line); }
+    .scenario-body { padding: .95rem 1.1rem 1.1rem; }
+    .scenario-body p + p { margin-top: .65rem; }
+    .scenario-body .kicker { color: #884f44; margin-bottom: .2rem; }
+    .training-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1rem, 4vw, 3rem); }
+    .training-grid article { border-top: 2px solid var(--plum); padding-top: .85rem; }
+    .training-grid p { margin-top: .4rem; color: var(--muted); }
+    .training-grid ul { padding-left: 1.2rem; margin-block: .5rem 0; }
+    .resume-toolbar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .75rem 1.25rem; margin-bottom: 1.5rem; }
+    #resume { padding-block-start: 0; }
+    .resume-paper { border: 1px solid var(--line); background: var(--white); padding: clamp(1.1rem, 4vw, 3rem); }
+    .cv-heading { display: flex; align-items: center; gap: 1rem; padding-bottom: 1rem; border-bottom: 2px solid var(--ink); }
+    .cv-heading img { width: 4.75rem; height: 5.65rem; object-fit: cover; object-position: center 25%; }
+    .cv-heading h3 { font-size: clamp(2.1rem, 4vw, 3.1rem); margin-block: .2rem; }
+    .cv-heading .kicker { color: #884f44; }
+    .cv-row { display: grid; grid-template-columns: minmax(7.8rem, 22%) 1fr; gap: .35rem 1.15rem; padding-block: .8rem; }
+    .cv-row + .cv-row { border-top: 1px solid var(--line); }
+    .cv-row h4 { margin: .14rem 0 0; font-size: .86rem; }
+    footer { border-top: 1px solid var(--line); padding-block: 1rem 1.8rem; color: var(--muted); font-size: .83rem; }
+    @media (max-width: 770px) {
+      .hero, .desk-layout, .scenario-layout { grid-template-columns: 1fr; }
+      .portrait { min-height: clamp(19rem, 69vw, 33rem); }
+      .lobby { min-height: clamp(13rem, 56vw, 23rem); }
+    }
+    @media (max-width: 540px) {
+      .brand .kicker { display: none; }
+      .masthead nav { column-gap: .6rem; font-size: .77rem; }
+      .facts, .training-grid, .cv-row { grid-template-columns: 1fr; }
+      .facts div { display: flex; flex-wrap: wrap; gap: .25rem .75rem; align-items: baseline; }
+      .facts div + div { border-inline-start: 0; border-top: 1px solid var(--line); }
+      .facts dt { margin: 0; }
+    }
+    @page { size: A4; margin: 14mm; }
+    @media print {
+      body { color: #000; background: #fff; font: 10.5pt/1.4 var(--sans); }
+      header, footer, .skip, main > :not(#resume), .resume-toolbar { display: none !important; }
+      #resume { width: 100%; padding: 0; }
+      .resume-paper { border: 0; padding: 0; background: #fff; }
+      .cv-heading h3 { font-size: 24pt; }
+      .cv-row { grid-template-columns: 8rem 1fr; break-inside: avoid; padding-block: .55rem; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="masthead shell">
+    <div class="brand"><span class="wordmark">GLOSS</span><span class="kicker">Hotel management</span></div>
+    <nav aria-label="Coursefolio sections">
+      <a href="#desk">Front desk</a>
+      <a href="#scenarios">Guest scenarios</a>
+      <a href="#resume">Classic résumé</a>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="shell" aria-labelledby="receptionist-name">
+      <div class="hero">
+        <div class="intro">
+          <p class="kicker">Receptionist coursefolio · Fictional sample</p>
+          <h1 id="receptionist-name">Aditi Shah</h1>
+          <p class="base">Front Desk Associate · Mumbai, India</p>
+          <p class="bio">From the first welcome to the final checkout, I keep guests informed, bookings accurate, and the next shift ready.</p>
+          <a class="button" href="#scenarios">Explore guest scenarios <span aria-hidden="true">↓</span></a>
+        </div>
+        <figure class="portrait"><img src="/samples/receptionist-portrait.jpg" alt="Sample portrait of Aditi Shah in a dark blazer at a hotel reception" fetchpriority="high"></figure>
+      </div>
+      <dl class="facts">
+        <div><dt class="kicker">Department</dt><dd>Front office</dd></div>
+        <div><dt class="kicker">Focus</dt><dd>Arrivals, reservations, and guest relations</dd></div>
+        <div><dt class="kicker">Languages</dt><dd>English · Hindi · Gujarati</dd></div>
+      </dl>
+    </section>
+
+    <section class="section shell" id="desk" aria-labelledby="desk-title">
+      <h2 class="section-title" id="desk-title">A shift at the front desk</h2>
+      <div class="desk-layout">
+        <figure class="lobby"><img src="/samples/receptionist-lobby.jpg" alt="Illustrative hotel lobby with a walnut reception desk and brass pendant lights" loading="lazy"></figure>
+        <ul class="desk-list">
+          <li><h3>Before arrivals</h3><p>Review the arrivals list, flag special requests, and check room readiness with housekeeping.</p></li>
+          <li><h3>Check-in and checkout</h3><p>Confirm booking details, explain deposits and timings, issue keys, and review the folio with guests before payment.</p></li>
+          <li><h3>Shift handover</h3><p>Record open guest requests, promised follow-up times, and which department will take the next action.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="scenario-band">
+      <section class="section shell scenario-layout" id="scenarios" aria-labelledby="scenarios-title">
+        <div>
+          <h2 id="scenarios-title">Guest-service scenarios</h2>
+          <p>Three practice cases from front-office training.</p>
+        </div>
+        <div>
+          <details name="guest-scenarios" open>
+            <summary>An early arrival and a room that’s still being prepared</summary>
+            <div class="scenario-body">
+              <p class="kicker">Aditi’s response</p>
+              <p>I’d confirm the booking, check the expected release time with housekeeping, and offer luggage storage and a place to wait. I’d agree on when the guest will hear from me and record the follow-up for the desk.</p>
+            </div>
+          </details>
+          <details name="guest-scenarios">
+            <summary>A reservation that isn’t on the arrivals list</summary>
+            <div class="scenario-body">
+              <p class="kicker">Aditi’s response</p>
+              <p>I’d ask for the confirmation number and booking channel, then check the dates and property with the guest. If it still didn’t appear, I’d involve reservations or the duty manager and explain the available options and rates before confirming any new booking.</p>
+            </div>
+          </details>
+          <details name="guest-scenarios">
+            <summary>A guest disputes a charge at checkout</summary>
+            <div class="scenario-body">
+              <p class="kicker">Aditi’s response</p>
+              <p>I’d listen, review the itemised folio with the guest, and check the posting with the department that added it. I’d explain what we verified, refer any adjustment to the authorised supervisor, and record the outcome in the handover.</p>
+            </div>
+          </details>
+        </div>
+      </section>
+    </div>
+
+    <section class="section shell" id="training" aria-labelledby="training-title">
+      <h2 class="section-title" id="training-title">Training &amp; systems</h2>
+      <div class="training-grid">
+        <article>
+          <h3>Front-office placement</h3>
+          <p>Hotel reception trainee · 2025</p>
+          <ul>
+            <li>Assisted with arrivals, room assignments, departures, and guest requests under a supervisor.</li>
+            <li>Coordinated room status with housekeeping and prepared end-of-shift handovers.</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Diploma in Hotel Management</h3>
+          <p>Front-office coursework · 2024–2025</p>
+          <ul>
+            <li>Practised reservation updates, room-status checks, and guest folios in a training property management system.</li>
+            <li>Completed role-play drills for complaint handling, billing queries, and service follow-up.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section shell" id="resume" aria-labelledby="resume-title">
+      <div class="resume-toolbar">
+        <h2 id="resume-title">Classic résumé</h2>
+        <button class="button" id="print-resume" type="button" hidden>Print / Save as PDF</button>
+      </div>
+      <article class="resume-paper" aria-label="Aditi Shah’s sample résumé">
+        <div class="cv-heading">
+          <img src="/samples/receptionist-portrait.jpg" alt="Aditi Shah’s sample headshot" loading="lazy">
+          <div><p class="kicker">Fictional sample résumé</p><h3>Aditi Shah</h3><p>Front Desk Associate · Mumbai, India</p></div>
+        </div>
+        <section class="cv-row"><h4>Profile</h4><p>Early-career hotel receptionist with front-office training in arrivals, reservations, billing, and guest relations.</p></section>
+        <section class="cv-row"><h4>Experience</h4><p><strong>Hotel reception trainee · 2025</strong><br>Supported check-ins and departures, updated guest requests, coordinated room readiness with housekeeping, and prepared shift notes.</p></section>
+        <section class="cv-row"><h4>Education</h4><p><strong>Diploma in Hotel Management · 2024–2025</strong><br>Front-office operations coursework and service-recovery simulations.</p></section>
+        <section class="cv-row"><h4>Desk skills</h4><p>Training PMS, reservations, room assignment, folio review, guest communication, and shift handovers.</p></section>
+        <section class="cv-row"><h4>Languages</h4><p>English, Hindi, Gujarati</p></section>
+        <section class="cv-row"><h4>Coursefolio</h4><p><a href="https://gloss-studio-editorial.sahdev-nishtha001.chatgpt.site/samples/receptionist">View the GLOSS receptionist coursefolio and practice scenarios</a></p></section>
+      </article>
+    </section>
+  </main>
+  <footer class="shell">Aditi Shah, her training, and the guest scenarios are fictional. Images are illustrative.</footer>
+  <script>
+    const printButton = document.getElementById('print-resume');
+    printButton.hidden = false;
+    printButton.addEventListener('click', () => window.print());
+  </script>
+</body>
+</html>

@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <meta name="description" content="Explore a fictional GLOSS hair artist portfolio with haircuts by texture, braids, updos, bridal styles, extensions, hair colour and a printable resume.">
+  <title>Mira Sethi · GLOSS Hair Artist Sample</title>
+  <style>
+    :root { --paper: #f6f2ea; --ink: #252e27; --accent: #3e5844; --line: #d3d5c7; --card: #fffcf6; }
+    * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.55 Arial, sans-serif; }
+    header, main, footer { width: min(1100px, 92%); margin: auto; }
+    header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+    .brand { font-size: 27px; font-weight: 800; letter-spacing: -1px; }
+    nav, .filters, .hero-links { display: flex; flex-wrap: wrap; gap: 8px; }
+    a { color: var(--accent); }
+    nav a, button { font: inherit; color: var(--accent); background: transparent; border: 1px solid #748675; border-radius: 3px; padding: 7px 13px; text-decoration: none; cursor: pointer; }
+    button[aria-pressed="true"], .primary { background: var(--accent); color: #fff; }
+    :focus-visible { outline: 3px solid #718a72; outline-offset: 3px; }
+    h1, h2, h3, h4 { font-family: Georgia, serif; font-weight: 400; line-height: 1.14; margin: .35em 0; }
+    h1 { font-size: clamp(52px, 9vw, 106px); letter-spacing: -.055em; }
+    h2 { font-size: clamp(32px, 5vw, 50px); }
+    h3 { font-size: 27px; }
+    .hero { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(20px, 6vw, 70px); padding: 38px 0; }
+    .hero img { display: block; width: 100%; height: clamp(320px, 44vw, 500px); object-fit: cover; object-position: center top; border-radius: 4px; }
+    .role { margin: .4em 0; color: var(--accent); font-size: clamp(19px, 3vw, 28px); }
+    .sample, .category { display: inline-block; font-size: 12px; font-weight: bold; letter-spacing: .055em; }
+    .sample { padding: 7px 11px; background: #e4ebde; border-radius: 3px; }
+    .hero-links { gap: 8px 22px; }
+    .section { margin: 0 0 46px; scroll-margin-top: 16px; }
+    .styling-film { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: clamp(20px, 4vw, 44px); align-items: center; padding: clamp(16px, 3vw, 32px); border-radius: 4px; background: #263b30; color: #fffaf0; }
+    .styling-film { scroll-margin-top: 16px; }
+    .styling-film h2 { margin-top: 0; }
+    .styling-film figure { margin: 0; }
+    .styling-film video { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; background: #161f19; border-radius: 3px; }
+    .styling-film figcaption { margin-top: 8px; color: #dce8d8; font-size: 13px; }
+    .filters { margin: 14px 0 18px; scroll-margin-top: 16px; }
+    .haircut-filters { padding: 10px; border: 1px solid var(--line); border-radius: 3px; background: #ecede2; }
+    .extension-note { margin: 0 0 16px; }
+    .gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    .look { overflow: hidden; border: 1px solid var(--line); border-radius: 4px; background: var(--card); }
+    .look img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; object-position: center top; }
+    .look[data-texture] img, .look[data-category="Updos"] img, .look[data-category="Braids"] img, .look[data-category="Bridal"] img { aspect-ratio: 1; }
+    .look-copy { padding: 18px; }
+    .look p { margin: 8px 0 0; }
+    .category { color: var(--accent); }
+    #shoot-gallery > h3 { margin: 24px 0 14px; }
+    #shoot-gallery h4 { margin: 0; font-size: 24px; }
+    .cv-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+    .cv { max-width: 800px; margin: auto; padding: clamp(20px, 5vw, 46px); border: 1px solid var(--line); background: white; }
+    .cv h3 { font-size: 40px; }
+    .cv h4 { margin: 16px 0 6px; padding-bottom: 4px; border-bottom: 1px solid var(--line); font: bold 13px Arial, sans-serif; text-transform: uppercase; letter-spacing: .06em; }
+    .cv p, .cv ul { margin: 6px 0; }
+    .cv img { float: right; width: 104px; height: 130px; margin-left: 12px; object-fit: cover; object-position: center top; }
+    footer { padding-bottom: 24px; color: #4e5a50; font-size: 13px; }
+    @media (max-width: 760px) { .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 640px) { .hero, .styling-film { grid-template-columns: 1fr; } .hero img { height: clamp(310px, 85vw, 470px); } }
+    @media (max-width: 480px) { .gallery { grid-template-columns: 1fr; } }
+    @page { size: A4; margin: 13mm; }
+    @media print {
+      body { background: white; color: #222; font-size: 10.5pt; }
+      header, footer, #portfolio, .cv-toolbar { display: none !important; }
+      main { width: 100%; }
+      .section { margin: 0; }
+      .cv { max-width: none; padding: 0; border: 0; }
+      .cv section { break-inside: avoid; }
+      .sample { padding: 0; background: transparent; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <span class="brand">GLOSS</span>
+    <nav aria-label="Hair artist sample views">
+      <a href="#portfolio">Living portfolio</a>
+      <a href="#resume">Classic resume</a>
+    </nav>
+  </header>
+  <main>
+    <div id="portfolio">
+      <section class="hero" aria-labelledby="name">
+        <div>
+          <span class="sample">Fictional hair artist sample</span>
+          <h1 id="name">Mira Sethi</h1>
+          <p class="role">Hair Artist</p>
+          <p>Mumbai, India · Bridal, events and shoots</p>
+          <p>I work with each client’s texture, from cuts and colour to clip-in extensions, braids and bridal styling.</p>
+          <div class="hero-links">
+            <a href="#extensions-film">Watch hair extensions ↓</a>
+            <a href="#looks">See looks and shoots ↓</a>
+          </div>
+        </div>
+        <img src="/samples/hair-headshot.jpg" alt="Mira Sethi, fictional hair artist" fetchpriority="high">
+      </section>
+      <div class="section" id="bridal-film">
+        <section class="styling-film" id="extensions-film" aria-labelledby="film-title">
+          <div>
+            <h2 id="film-title">Clip-in hair extensions</h2>
+            <p>Watch Mira section her client’s hair, fit a clip-in weft and brush through to blend the added length.</p>
+          </div>
+          <figure>
+            <video controls playsinline preload="metadata" width="960" height="640" aria-labelledby="film-title" aria-describedby="film-credit" poster="/samples/hair-extensions-film.jpg" src="/samples/hair-extensions-film.mp4">
+              <a href="/samples/hair-extensions-film.mp4" download="gloss-hair-extensions.mp4">Download the hair extension sequence</a>
+            </video>
+            <figcaption id="film-credit">AI-illustrated sequence featuring the same fictional artist as the profile portrait.</figcaption>
+          </figure>
+        </section>
+      </div>
+      <section class="section" id="looks" aria-labelledby="looks-title">
+        <h2 id="looks-title">Looks &amp; stories</h2>
+        <div class="filters" id="experience" role="group" aria-label="Filter hairstyles and shoots">
+          <button type="button" data-filter="All" aria-pressed="true">All looks</button>
+          <button type="button" data-filter="Haircuts" aria-pressed="false" aria-controls="looks-gallery haircut-textures">Haircuts</button>
+          <button type="button" data-filter="Updos" aria-pressed="false" aria-controls="looks-gallery">Updos</button>
+          <button type="button" data-filter="Braids" aria-pressed="false" aria-controls="looks-gallery">Braids</button>
+          <button type="button" data-filter="Bridal" aria-pressed="false" aria-controls="looks-gallery">Bridal</button>
+          <button type="button" data-filter="Extensions" aria-pressed="false" aria-controls="looks-gallery">Extensions</button>
+          <button type="button" data-filter="Hair Colour" aria-pressed="false" aria-controls="looks-gallery">Hair Colour</button>
+          <button type="button" data-filter="Shoot" aria-pressed="false" aria-controls="shoot-gallery">Shoot</button>
+        </div>
+        <div class="filters haircut-filters" id="haircut-textures" role="group" aria-label="Choose a hair texture" hidden>
+          <button type="button" data-hair-texture="Wavy hair" aria-pressed="true" aria-controls="looks-gallery">Wavy hair</button>
+          <button type="button" data-hair-texture="Curly hair" aria-pressed="false" aria-controls="looks-gallery">Curly hair</button>
+          <button type="button" data-hair-texture="Straight hair" aria-pressed="false" aria-controls="looks-gallery">Straight hair</button>
+        </div>
+        <p class="extension-note" id="extensions-note" hidden><a href="#extensions-film">Watch Mira apply clip-in extensions ↑</a></p>
+        <div class="gallery" id="looks-gallery">
+          <article class="look" data-category="Haircuts" data-texture="Wavy hair">
+            <img src="/samples/hair-wavy-french-bob.jpg" alt="Chin-length bob with a soft fringe and natural S-waves" width="508" height="508" loading="lazy">
+            <div class="look-copy">
+              <span class="category">Wavy hair</span>
+              <h3>Wavy French bob</h3>
+              <p>A soft fringe follows the shape of a chin-length cut with loose S-waves.</p>
+            </div>
+          </article>
+          <article class="look" data-category="Haircuts" data-texture="Wavy hair">
+            <img src="/samples/hair-wavy-shag.jpg" alt="Wavy shag with a curtain fringe and short crown layers" width="508" height="508" loading="lazy">
+            <div class="look-copy">
+              <span class="category">Wavy hair</span>
+              <h3>Wavy shag</h3>
+              <p>Shorter layers at the crown give the waves lift around the face.</p>
+            </div>
+          </article>
+          <article class="look" data-category="Haircuts" data-texture="Wavy hair">
+            <img src="/samples/hair-wavy-long-layers.jpg" alt="Long waves with face-framing layers and wispy strands around the hairline" width="508" height="508" loading="lazy">
+            <div class="look-copy">
+              <span class="category">Wavy hair</span>
+              <h3>Long wavy layers</h3>
+              <p>Face-framing layers taper into longer waves and let the natural pattern show.</p>
+            </div>
+          </article>
+          <article class="look" data-category="Haircuts" data-texture="Curly hair">
+            <img src="/samples/hair-curly-bob.jpg" alt="Rounded chin-length curly bob with defined dark ringlets" width="508" height="508" loading="lazy">
+            <div class="look-copy">
+              <span class="category">Curly hair</span>
+              <h3>Curly bob</h3>
+              <p>A rounded shape keeps the bob full as the ringlets spring up around the jaw.</p>
+            </div>
+          </article>
+          <article class="look" data-category="Haircuts" data-texture="Curly hair">
+            <img src="/samples/hair-curly-shag.jpg" alt="Copper corkscrew curls, a short curly fringe and layers at the crown" width="508" height="508" loading="lazy">
+            <div class="look-copy">
+              <span class="category">Curly hair</span>
+              <h3>Curly shag</h3>
+              <p>Short crown layers and a curly fringe let the spirals spring upward.</p>
+            </div>
+          </article>
+          <article class="look" data-category="Haircuts" data-texture="Curly hair">
+            <img src="/samples/hair-curly-long-layers.jpg" alt="Long layered cut with defined dark spiral curls" width="508" height="508" loading="lazy">
+            <div class="look-copy">
+              <span class="category">Curly hair</span>
+              <h3>Long curly layers</h3>
+              <p>Long layers distribute volume while keeping the curl pattern visible.</p>
+            </div>
+          </article>
+          <article class="look" data-category="Haircuts" data-texture="Straight hair">
+            <img src="/samples/hair-straight-blunt-bob.jpg" alt="Dark straight bob with a centre part and a precise chin-length edge" width="508" height="508" loading="lazy">
+            <div class="look-copy">
+              <span class="category">Straight hair</span>
+              <h3>Blunt straight bob</h3>
+              <p>A single line at the chin gives straight hair a crisp outline.</p>
+            </div>
+          </article>
+          <article class="look" data-category="Haircuts" data-texture="Straight hair">
+            <img src="/samples/hair-straight-lob.jpg" alt="Smooth straight collarbone-length haircut with a soft side part" width="508" height="508" loading="lazy">
+            <div class="look-copy">
+              <span class="category">Straight hair</span>
+              <h3>Straight lob</h3>
+              <p>A collarbone-length cut with a defined weight line and soft side part.</p>
+            </div>
+          </article>
+          <article class="look" data-category="Haircuts" data-texture="Straight hair">
+            <img src="/samples/hair-straight-long-layers.jpg" alt="Long straight chestnut hair with shorter strips framing the face" width="508" height="508" loading="lazy">
+            <div class="look-copy">
+              <span class="category">Straight hair</span>
+              <h3>Long straight layers</h3>
+              <p>Shorter pieces frame the face and taper into a longer perimeter.</p>
+            </div>
+          </article>
+          <article class="look" data-category="Updos">
+            <img src="/samples/hair-updos.jpg" alt="Model in profile with a sleek low chignon" width="380" height="508" loading="lazy">
+            <div class="look-copy"><span class="category">Updos</span><h3>Sculpted chignon</h3><p>A low, pinned twist keeps the neckline visible and holds its shape from the side.</p></div>
+          </article>
+          <article class="look" data-category="Updos">
+            <img src="/samples/hair-french-twist.jpg" alt="Dark chestnut hair folded into a vertical French twist" width="508" height="508" loading="lazy">
+            <div class="look-copy">
+              <span class="category">Updos</span>
+              <h3>French twist</h3>
+              <p>A smooth vertical fold keeps the neckline open and puts the shape in view.</p>
+            </div>
+          </article>
+          <article class="look" data-category="Updos">
+            <img src="/samples/hair-high-textured-bun.jpg" alt="High bun with soft texture and face-framing tendrils" width="508" height="508" loading="lazy">
+            <div class="look-copy">
+              <span class="category">Updos</span>
+              <h3>High textured bun</h3>
+              <p>A high bun with loose front pieces and visible texture through the crown.</p>
+            </div>
+          </article>
+          <article class="look" data-category="Updos">
+            <img src="/samples/hair-pinned-curly-updo.jpg" alt="Defined dark ringlets pinned into a low updo" width="508" height="508" loading="lazy">
+            <div class="look-copy">
+              <span class="category">Updos</span>
+              <h3>Pinned curly updo</h3>
+              <p>Individual curls stay visible in the pinned shape, with a few ringlets left loose.</p>
+            </div>
+          </article>
+          <article class="look" data-category="Braids">
+            <img src="/samples/hair-braids.jpg" alt="Model with a loose textured braid over one shoulder" width="380" height="508" loading="lazy">
+            <div class="look-copy"><span class="category">Braids</span><h3>Textured side braid</h3><p>Loosened sections give the braid volume while keeping the weave defined.</p></div>
+          </article>
+          <article class="look" data-category="Braids">
+            <img src="/samples/hair-fishtail-braid.jpg" alt="A brunette fishtail with a narrow herringbone weave" width="508" height="508" loading="lazy">
+            <div class="look-copy">
+              <span class="category">Braids</span>
+              <h3>Fishtail braid</h3>
+              <p>Fine alternating sections make the herringbone pattern visible along the length.</p>
+            </div>
+          </article>
+          <article class="look" data-category="Braids">
+            <img src="/samples/hair-double-dutch-braids.jpg" alt="Two raised Dutch braids leading into separate tails" width="508" height="508" loading="lazy">
+            <div class="look-copy">
+              <span class="category">Braids</span>
+              <h3>Double Dutch braids</h3>
+              <p>Two raised braids start at the hairline and continue into separate tails.</p>
+            </div>
+          </article>
+          <article class="look" data-category="Braids">
+            <img src="/samples/hair-crown-braid.jpg" alt="Woven braid wrapped around the model’s crown" width="508" height="508" loading="lazy">
+            <div class="look-copy">
+              <span class="category">Braids</span>
+              <h3>Crown braid</h3>
+              <p>A braided halo wraps around the head and leaves the neckline clear.</p>
+            </div>
+          </article>
+          <article class="look" data-category="Bridal">
+            <img src="/samples/hair-bridal.jpg" alt="Bride with a low bun decorated with ivory jasmine" width="380" height="508" loading="lazy">
+            <div class="look-copy"><span class="category">Bridal</span><h3>Jasmine low bun</h3><p>A pinned low bun leaves room for jewellery and a dupatta, with jasmine placed to show in profile.</p></div>
+          </article>
+          <article class="look" data-category="Bridal">
+            <img src="/samples/hair-bridal-pearl-half-up.jpg" alt="Bride with glossy half-up waves and pearl pins" width="508" height="508" loading="lazy">
+            <div class="look-copy">
+              <span class="category">Bridal</span>
+              <h3>Pearl half-up waves</h3>
+              <p>Pearl pins highlight the half-up twist while loose waves fall over the shoulders.</p>
+            </div>
+          </article>
+          <article class="look" data-category="Bridal">
+            <img src="/samples/hair-bridal-sleek-ponytail.jpg" alt="Bride with a smooth low ponytail and gold-wrapped base" width="508" height="508" loading="lazy">
+            <div class="look-copy">
+              <span class="category">Bridal</span>
+              <h3>Sleek bridal ponytail</h3>
+              <p>A smooth low ponytail with a gold-wrapped base leaves statement earrings in view.</p>
+            </div>
+          </article>
+          <article class="look" data-category="Extensions">
+            <img src="/samples/hair-extensions-straight.jpg" alt="Long straight black hair with clip-in extensions blended into the lengths" width="380" height="508" loading="lazy">
+            <div class="look-copy">
+              <span class="category">Extensions</span>
+              <h3>Straight clip-ins</h3>
+              <p>Straight clip-ins add length while keeping a smooth, even finish.</p>
+            </div>
+          </article>
+          <article class="look" data-category="Extensions">
+            <img src="/samples/hair-extensions-wavy.jpg" alt="Long chestnut S-waves with blended clip-in extensions" width="380" height="508" loading="lazy">
+            <div class="look-copy">
+              <span class="category">Extensions</span>
+              <h3>Wavy clip-ins</h3>
+              <p>Matched S-waves carry the client’s existing pattern into the added lengths.</p>
+            </div>
+          </article>
+          <article class="look" data-category="Extensions">
+            <img src="/samples/hair-extensions-curly.jpg" alt="Long defined corkscrew curls with matching clip-in extensions" width="380" height="508" loading="lazy">
+            <div class="look-copy">
+              <span class="category">Extensions</span>
+              <h3>Curly clip-ins</h3>
+              <p>Texture-matched curls keep the volume and spiral pattern consistent.</p>
+            </div>
+          </article>
+          <article class="look" data-category="Hair Colour">
+            <img src="/samples/hair-colour-global-chocolate.jpg" alt="Glossy neutral chocolate brown hair with an even tone" width="380" height="508" loading="lazy">
+            <div class="look-copy">
+              <span class="category">Hair Colour</span>
+              <h3>Global chocolate brown</h3>
+              <p>One neutral chocolate shade runs from roots to ends.</p>
+            </div>
+          </article>
+          <article class="look" data-category="Hair Colour">
+            <img src="/samples/hair-colour-caramel-streaks.jpg" alt="Warm caramel ribbons on a dark espresso base" width="380" height="508" loading="lazy">
+            <div class="look-copy">
+              <span class="category">Hair Colour</span>
+              <h3>Caramel streaks</h3>
+              <p>Distinct caramel ribbons brighten the face and break up the dark base.</p>
+            </div>
+          </article>
+          <article class="look" data-category="Hair Colour">
+            <img src="/samples/hair-colour-smoky-ash.jpg" alt="Cool ash-brown balayage fading into beige-ash ends" width="380" height="508" loading="lazy">
+            <div class="look-copy">
+              <span class="category">Hair Colour</span>
+              <h3>Smoky ash balayage</h3>
+              <p>Cool-toned ash colour blends gradually into lighter ends.</p>
+            </div>
+          </article>
+          <article class="look" data-category="Hair Colour">
+            <img src="/samples/hair-colour-orchid-panels.jpg" alt="Vivid magenta peekaboo colour panels on a deep violet base" width="380" height="508" loading="lazy">
+            <div class="look-copy">
+              <span class="category">Hair Colour</span>
+              <h3>Bold orchid panels</h3>
+              <p>Orchid-magenta panels peek through a deep violet base.</p>
+            </div>
+          </article>
+        </div>
+        <section id="shoot-gallery" aria-labelledby="shoot-title" hidden>
+          <h3 id="shoot-title">Shoot experience</h3>
+          <div class="gallery">
+            <article class="look">
+              <img src="/samples/hair-shoot-fashion.jpg" alt="Fashion editorial model with a slicked-back wet-look side part" width="380" height="508" loading="lazy">
+              <div class="look-copy"><h4>Fashion editorial</h4><p>Kept a sharp side part and wet-look finish consistent through wardrobe changes.</p></div>
+            </article>
+            <article class="look">
+              <img src="/samples/hair-shoot-beauty.jpg" alt="Beauty campaign model with polished waves framing her face" width="380" height="508" loading="lazy">
+              <div class="look-copy"><h4>Beauty campaign</h4><p>Shaped soft waves away from the face and checked flyaways between close-up takes.</p></div>
+            </article>
+            <article class="look">
+              <img src="/samples/hair-shoot-bridal.jpg" alt="Bridal lookbook model with a flower-accented side braid" width="380" height="508" loading="lazy">
+              <div class="look-copy"><h4>Bridal lookbook</h4><p>Placed flowers along a side braid so the styling reads in both front and profile portraits.</p></div>
+            </article>
+          </div>
+        </section>
+      </section>
+    </div>
+    <section class="section" id="resume" aria-labelledby="resume-title">
+      <div class="cv-toolbar">
+        <h2 id="resume-title">Classic resume</h2>
+        <button class="primary" id="print-resume" type="button">Print / Save as PDF</button>
+      </div>
+      <article class="cv">
+        <img src="/samples/hair-headshot.jpg" alt="Mira Sethi, fictional hair artist">
+        <span class="sample">Fictional sample resume</span>
+        <h3>Mira Sethi</h3>
+        <p><strong>Hair Artist</strong> · Mumbai, India</p>
+        <section><h4>Profile</h4><p>Freelance hair artist for bridal clients, events and studio shoots. Works with photographers, makeup artists and stylists to plan styles around wardrobe, texture and camera angles.</p></section>
+        <section><h4>Experience</h4><p><strong>Freelance Hair Artist</strong> · Mumbai · 2023–present</p><ul><li>Plan bridal looks through consultations and trials, including accessory and veil placement.</li><li>Style hair on set and maintain shape, texture and finish between takes.</li></ul></section>
+        <section><h4>Shoot experience</h4><p>Fashion editorial · Wet-look styling and continuity<br>Beauty campaign · Soft waves and flyaway control<br>Bridal lookbook · Braiding and flower placement</p></section>
+        <section><h4>Training &amp; skills</h4><p>Professional hairstyling course, 2023. Sectioning, blow-drying, waves, braiding, pinning, bridal updos and on-set touch-ups.</p></section>
+        <section><h4>Portfolio</h4><p><a href="https://gloss-studio-editorial.sahdev-nishtha001.chatgpt.site/samples/hair">View the living portfolio</a></p></section>
+      </article>
+    </section>
+  </main>
+  <footer>Mira Sethi and the shoot credits are fictional. The portrait, hairstyles and extension sequence use AI-generated imagery.</footer>
+  <script>
+    const filters = document.querySelectorAll('[data-filter]');
+    const textures = document.querySelectorAll('[data-hair-texture]');
+    const looks = document.querySelectorAll('[data-category]');
+    const looksGallery = document.getElementById('looks-gallery');
+    const shootGallery = document.getElementById('shoot-gallery');
+    const texturePicker = document.getElementById('haircut-textures');
+    const extensionLink = document.getElementById('extensions-note');
+    let category = 'All';
+    let texture = 'Wavy hair';
+
+    function updateGallery() {
+      const showShoots = category === 'Shoot';
+      const showHaircuts = category === 'Haircuts';
+      looksGallery.hidden = showShoots;
+      shootGallery.hidden = !showShoots;
+      texturePicker.hidden = !showHaircuts;
+      extensionLink.hidden = category !== 'Extensions';
+      filters.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === category)));
+      textures.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.hairTexture === texture)));
+      looks.forEach(look => {
+        const categoryMatches = category === 'All' || look.dataset.category === category;
+        look.hidden = !categoryMatches || (showHaircuts && look.dataset.texture !== texture);
+      });
+    }
+    filters.forEach(button => button.addEventListener('click', () => {
+      category = button.dataset.filter;
+      updateGallery();
+    }));
+    textures.forEach(button => button.addEventListener('click', () => {
+      texture = button.dataset.hairTexture;
+      updateGallery();
+    }));
+    const showLinkedShoots = () => {
+      if (window.location.hash === '#experience') {
+        category = 'Shoot';
+        updateGallery();
+      }
+    };
+    window.addEventListener('hashchange', showLinkedShoots);
+    showLinkedShoots();
+    document.getElementById('print-resume').addEventListener('click', () => window.print());
+  </script>
+</body>
+</html>

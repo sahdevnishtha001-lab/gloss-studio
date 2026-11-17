@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A GLOSS chef coursefolio sample with cuisines, plated dishes, hotel kitchen training, and a printable classic résumé.">
+  <title>Arjun Rao · GLOSS Chef Coursefolio</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f7f3eb;
+      --white: #fffdf7;
+      --ink: #232c22;
+      --muted: #566054;
+      --forest: #1d3228;
+      --cream: #fff7df;
+      --lime: #e6ecaa;
+      --rust: #8a3e28;
+      --line: #ddd6c8;
+      --serif: "Baskervville", Georgia, serif;
+      --sans: "Instrument Sans", system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-padding-block-start: 1rem; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 1rem/1.6 var(--sans); }
+    a { color: inherit; text-underline-offset: .22em; }
+    button, summary { font: inherit; }
+    a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid #a25238; outline-offset: 4px; }
+    img { display: block; max-width: 100%; }
+    h1, h2, h3, p, figure, dl, dd { margin: 0; }
+    h1, h2, h3 { line-height: 1.06; }
+    h2, h3 { font-family: var(--serif); font-weight: 400; }
+    h2 { font-size: clamp(2.55rem, 5vw, 4.1rem); letter-spacing: -.045em; }
+    h3 { font-size: clamp(1.55rem, 3vw, 2rem); letter-spacing: -.02em; }
+    [hidden] { display: none !important; }
+    .shell { width: min(74rem, calc(100% - clamp(2rem, 8vw, 8rem))); margin-inline: auto; }
+    .skip { position: absolute; inset: .5rem auto auto .5rem; padding: .6rem; background: var(--white); z-index: 2; transform: translateY(-150%); }
+    .skip:focus { transform: none; }
+    .top { display: flex; justify-content: space-between; align-items: center; gap: 1rem; min-height: 4.25rem; }
+    .brand { display: flex; align-items: baseline; gap: .8rem; }
+    .wordmark { font-weight: 900; letter-spacing: -.065em; font-size: 1.65rem; line-height: 1; }
+    .kicker { font-size: .72rem; font-weight: 760; letter-spacing: .12em; text-transform: uppercase; }
+    .brand .kicker { color: var(--muted); }
+    .top nav { display: flex; flex-wrap: wrap; gap: 1.25rem; font-size: .87rem; font-weight: 650; }
+    .top nav a { text-decoration: none; padding-block: .5rem; }
+    .top nav a:hover { text-decoration: underline; }
+    .hero { display: grid; grid-template-columns: 1.25fr 1fr; background: var(--forest); color: var(--cream); overflow: hidden; }
+    .hero-copy { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: clamp(2rem, 6vw, 5.5rem); }
+    .hero-copy .kicker { color: var(--lime); }
+    .hero h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(3.85rem, 8.2vw, 8.5rem); letter-spacing: -.067em; margin: .65rem 0 1.15rem; }
+    .hero-role { font-size: clamp(1.05rem, 2vw, 1.3rem); font-weight: 650; }
+    .hero-description { margin-top: 1rem; max-width: 35ch; color: #e2e5cf; }
+    .hero-media { position: relative; min-height: 27rem; background: #3c4131; }
+    .hero-media img { position: absolute; width: 100%; height: 100%; object-fit: cover; object-position: center 37%; }
+    .button { display: inline-flex; align-items: center; justify-content: center; min-height: 2.8rem; padding: .55rem 1rem; gap: .75rem; border: 1px solid var(--forest); background: var(--forest); color: var(--white); text-decoration: none; font-weight: 700; border-radius: .2rem; cursor: pointer; }
+    .hero .button { background: var(--lime); color: var(--forest); border-color: var(--lime); margin-top: 1.65rem; }
+    .hero .button:focus-visible { outline-color: var(--cream); }
+    .quick-facts { display: grid; grid-template-columns: 1fr 1.2fr 1fr; border: 1px solid var(--line); border-top: 0; background: var(--white); }
+    .quick-facts div { padding: .9rem clamp(.8rem, 3vw, 1.6rem); }
+    .quick-facts div + div { border-inline-start: 1px solid var(--line); }
+    .quick-facts dt { color: var(--muted); margin-bottom: .2rem; }
+    .quick-facts dd { font-size: .94rem; font-weight: 650; }
+    .section { padding-block: clamp(3.25rem, 8vw, 6rem); }
+    .section-title { display: flex; justify-content: space-between; align-items: end; gap: 1.5rem; margin-bottom: 1.8rem; }
+    .section-title p { max-width: 34ch; color: var(--muted); }
+    .cuisine-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+    .cuisine-list article { padding: 1rem 1.15rem; background: var(--white); border-top: 2px solid var(--forest); }
+    .cuisine-list h3 { margin: .3rem 0 .55rem; }
+    .cuisine-list .kicker { color: var(--rust); }
+    .cuisine-list p:last-child { color: var(--muted); }
+    #cuisines + #work { padding-block-start: 0; }
+    .filters { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.25rem; }
+    .filters button { min-height: 2.75rem; border: 1px solid #b8b7a8; border-radius: 5rem; color: var(--ink); background: transparent; padding: .45rem .95rem; font-size: .88rem; font-weight: 650; cursor: pointer; }
+    .filters button[aria-pressed="true"] { color: var(--white); background: var(--forest); border-color: var(--forest); }
+    .work-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1rem, 3vw, 1.75rem); }
+    .work-card { min-width: 0; background: var(--white); border: 1px solid var(--line); }
+    .dish-photo { aspect-ratio: 3 / 2; position: relative; overflow: hidden; background: #ccc3ab; }
+    .dish-photo img { position: absolute; width: 200%; height: 200%; max-width: none; inset: var(--y, 0) auto auto var(--x, 0); }
+    .top-right { --x: -100%; }
+    .bottom-left { --y: -100%; }
+    .bottom-right { --x: -100%; --y: -100%; }
+    .work-copy { padding: clamp(1.1rem, 3vw, 1.65rem); }
+    .work-copy .kicker { color: var(--rust); margin-bottom: .5rem; }
+    .work-copy h3 { margin-bottom: .55rem; }
+    .work-copy > p:last-of-type { color: var(--muted); }
+    details { margin-top: 1rem; border-top: 1px solid var(--line); padding-top: .65rem; }
+    summary { cursor: pointer; font-weight: 700; }
+    details p, details dl { margin-top: .7rem; }
+    .case-notes dt { font-weight: 700; margin-top: .45rem; }
+    .case-notes dd { color: var(--muted); }
+    .training { border-block: 1px solid #cbd5be; background: #e7ecdf; }
+    .training-grid { display: grid; grid-template-columns: 1fr 1fr; margin-top: 1.6rem; gap: 1.25rem; }
+    .training-grid article { border-top: 1px solid #a9b5a1; padding-top: 1rem; }
+    .training-grid h3 { margin-bottom: .65rem; }
+    .training-grid ul { padding-left: 1.25rem; margin-block: .65rem 0; }
+    .training-grid li + li { margin-top: .45rem; }
+    .training-grid details { border-color: #a9b5a1; }
+    .resume .section-title { align-items: center; }
+    .resume-sheet { padding: clamp(1.25rem, 5vw, 3.25rem); background: var(--white); border: 1px solid var(--line); }
+    .resume-heading { display: flex; align-items: center; gap: 1.15rem; padding-bottom: 1.25rem; border-bottom: 2px solid var(--ink); }
+    .resume-heading img { width: 4.9rem; height: 5.9rem; object-fit: cover; object-position: center 25%; }
+    .resume-heading h3 { font-size: clamp(2rem, 4vw, 3rem); margin-block: .3rem; }
+    .resume-heading .kicker { color: var(--rust); }
+    .resume-block { display: grid; grid-template-columns: minmax(8rem, 22%) 1fr; gap: .8rem 1.35rem; padding: .8rem 0; }
+    .resume-block + .resume-block { border-top: 1px solid var(--line); }
+    .resume-block h4 { font-size: .8rem; margin: .2rem 0 0; }
+    .resume-block ul { margin: 0; padding-left: 1.15rem; }
+    .resume-block:first-of-type { padding-top: 1rem; }
+    footer { border-top: 1px solid var(--line); color: var(--muted); padding: 1.2rem 0 2rem; font-size: .84rem; }
+    @media (max-width: 740px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-media { min-height: clamp(18rem, 67vw, 28rem); }
+      .section-title { align-items: start; flex-direction: column; gap: .65rem; }
+      .cuisine-list { grid-template-columns: 1fr; }
+      .resume .section-title { align-items: start; }
+    }
+    @media (max-width: 510px) {
+      .brand .kicker { display: none; }
+      .top nav { justify-content: flex-end; gap: 0 .72rem; font-size: .8rem; }
+      .work-grid, .training-grid, .quick-facts { grid-template-columns: 1fr; }
+      .quick-facts div + div { border-inline-start: 0; border-top: 1px solid var(--line); }
+      .quick-facts div { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: .75rem; }
+      .quick-facts dt { margin: 0; }
+      .resume-block { grid-template-columns: 1fr; gap: .35rem; }
+    }
+    @page { size: A4; margin: 14mm; }
+    @media print {
+      body { color: #000; background: #fff; font: 10.5pt/1.4 var(--sans); }
+      header, footer, .skip, main > :not(#resume), #resume .section-title { display: none !important; }
+      #resume { padding: 0; width: 100%; }
+      .resume-sheet { border: 0; padding: 0; background: white; }
+      .resume-heading h3 { font-size: 25pt; }
+      .resume-block { grid-template-columns: 8rem 1fr; break-inside: avoid; padding: .6rem 0; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="shell top">
+    <div class="brand"><span class="wordmark">GLOSS</span><span class="kicker">Hotel management</span></div>
+    <nav aria-label="Coursefolio sections"><a href="#cuisines">Cuisines</a><a href="#work">Kitchen work</a><a href="#training">Training</a><a href="#resume">Classic résumé</a></nav>
+  </header>
+  <main id="main">
+    <section class="shell" aria-labelledby="chef-name">
+      <div class="hero">
+        <div class="hero-copy">
+          <p class="kicker">Chef coursefolio · Fictional sample</p>
+          <h1 id="chef-name">Arjun Rao</h1>
+          <p class="hero-role">Commis Chef · Mumbai, India</p>
+          <p class="hero-description">My work from the hot kitchen, the banquet pass, and culinary school. See what went into each plate and how I prepared it for service.</p>
+          <a class="button" href="#work">Explore kitchen work <span aria-hidden="true">↓</span></a>
+        </div>
+        <figure class="hero-media"><img src="/samples/chef-portrait.jpg" alt="Sample portrait of Arjun in a chef’s jacket and apron in a hotel kitchen" fetchpriority="high"></figure>
+      </div>
+      <dl class="quick-facts">
+        <div><dt class="kicker">Stations</dt><dd>Hot kitchen · Banquets</dd></div>
+        <div><dt class="kicker">Cuisines</dt><dd><a href="#cuisines">Modern Indian · Italian · Indo-Chinese</a></dd></div>
+        <div><dt class="kicker">Languages</dt><dd>English · Hindi · Marathi</dd></div>
+      </dl>
+    </section>
+
+    <section class="section shell" id="cuisines" aria-labelledby="cuisines-title">
+      <div class="section-title"><h2 id="cuisines-title">Cuisines I cook</h2></div>
+      <div class="cuisine-list">
+        <article>
+          <p class="kicker">Hotel kitchen</p>
+          <h3>Modern Indian</h3>
+          <p>Kasundi roast chicken, paneer tikka, and spice-roasted cauliflower with saffron rice.</p>
+        </article>
+        <article>
+          <p class="kicker">Culinary lab</p>
+          <h3>Italian</h3>
+          <p>Tomato and basil pasta, mushroom risotto, and coconut panna cotta.</p>
+        </article>
+        <article>
+          <p class="kicker">Practice kitchen</p>
+          <h3>Indo-Chinese</h3>
+          <p>Hakka noodles, chilli paneer, and vegetable fried rice.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section shell" id="work" aria-labelledby="work-title">
+      <div class="section-title">
+        <h2 id="work-title">Selected kitchen work</h2>
+        <p>Open the notes on each project to see my role, techniques, and decisions during prep and service.</p>
+      </div>
+      <div class="filters" role="group" aria-label="Filter kitchen work" hidden>
+        <button type="button" data-filter="all" aria-pressed="true">All work</button>
+        <button type="button" data-filter="plates" aria-pressed="false">Plated dishes</button>
+        <button type="button" data-filter="menu" aria-pressed="false">Menu development</button>
+        <button type="button" data-filter="operations" aria-pressed="false">Kitchen operations</button>
+      </div>
+      <div class="work-grid">
+        <article class="work-card" data-work="plates">
+          <div class="dish-photo"><img src="/samples/chef-kitchen-work.jpg" alt="Sliced kasundi roast chicken with roasted carrots and greens on an ivory plate" loading="lazy"></div>
+          <div class="work-copy">
+            <p class="kicker">Hot kitchen · À la carte</p>
+            <h3>Kasundi roast chicken</h3>
+            <p>Mustard-glazed chicken, roasted carrots, charred greens, and pan jus.</p>
+            <details>
+              <summary>View dish notes</summary>
+              <dl class="case-notes">
+                <dt>My role</dt><dd>Prepared the glaze and garnishes, roasted the chicken under supervision, and finished the plate at the pass.</dd>
+                <dt>Technique</dt><dd>Used pan drippings for the jus and plated the greens last so they held their texture.</dd>
+              </dl>
+            </details>
+          </div>
+        </article>
+        <article class="work-card" data-work="plates">
+          <div class="dish-photo top-right"><img src="/samples/chef-kitchen-work.jpg" alt="Coconut panna cotta with mango and sesame brittle on dark stoneware" loading="lazy"></div>
+          <div class="work-copy">
+            <p class="kicker">Pastry · Culinary lab</p>
+            <h3>Coconut panna cotta</h3>
+            <p>A chilled coconut set with mango and sesame brittle.</p>
+            <details>
+              <summary>View dish notes</summary>
+              <dl class="case-notes">
+                <dt>My role</dt><dd>Tested the set, portioned the dessert, and prepared the sesame garnish.</dd>
+                <dt>Technique</dt><dd>Chilled the portions in advance and added the brittle at pickup to keep it crisp.</dd>
+              </dl>
+            </details>
+          </div>
+        </article>
+        <article class="work-card" data-work="menu">
+          <div class="dish-photo bottom-left"><img src="/samples/chef-kitchen-work.jpg" alt="Matching banquet plates of spice-roasted cauliflower and saffron rice lined up on the pass" loading="lazy"></div>
+          <div class="work-copy">
+            <p class="kicker">Banquet · Menu development</p>
+            <h3>A vegetarian banquet main</h3>
+            <p>Spice-roasted cauliflower and saffron rice planned for consistent batch plating.</p>
+            <details>
+              <summary>View menu notes</summary>
+              <dl class="case-notes">
+                <dt>My role</dt><dd>Tested a tasting portion, drafted the portion guide, and assisted with a mock banquet pickup.</dd>
+                <dt>Service decision</dt><dd>Kept the rice and cauliflower on separate prep schedules and used a reference plate so the team could match portions and placement.</dd>
+              </dl>
+            </details>
+          </div>
+        </article>
+        <article class="work-card" data-work="operations">
+          <div class="dish-photo bottom-right"><img src="/samples/chef-kitchen-work.jpg" alt="An orderly hotel prep station with separate containers of vegetables and clean tools" loading="lazy"></div>
+          <div class="work-copy">
+            <p class="kicker">Kitchen operations · Mise en place</p>
+            <h3>Ready for service</h3>
+            <p>A station setup and handover plan for the evening shift.</p>
+            <details>
+              <summary>View station notes</summary>
+              <dl class="case-notes">
+                <dt>My role</dt><dd>Checked portions against the prep sheet, labelled containers, and flagged items that needed replenishing.</dd>
+                <dt>Handover</dt><dd>Recorded remaining stock and unfinished prep so the next shift could take over without losing track of either.</dd>
+              </dl>
+            </details>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <div class="training">
+      <section class="section shell" id="training" aria-labelledby="training-title">
+        <div class="section-title"><h2 id="training-title">Training &amp; service</h2></div>
+        <div class="training-grid">
+          <article>
+            <h3>Kitchen placement</h3>
+            <p>Hotel training placement · 2025 · Hot kitchen and banquet rotations</p>
+            <ul>
+              <li>Prepared garnishes and sides for à la carte service under the station chef.</li>
+              <li>Supported banquet batch prep, portioning, and plating checks at the pass.</li>
+              <li>Practised stock rotation, hygiene routines, and shift handovers.</li>
+            </ul>
+          </article>
+          <article>
+            <h3>Culinary training</h3>
+            <p>Diploma in Culinary Arts · 2024–2025</p>
+            <ul>
+              <li>Kitchen fundamentals, sauces, basic pastry, menu planning, and portion costing.</li>
+              <li>Food safety coursework covering allergen communication, safe storage, and temperature logs.</li>
+            </ul>
+            <details>
+              <summary>Practice scenario · Allergen request at the pass</summary>
+              <p>When a ticket flagged a sesame allergy, I paused the plate, alerted the station chef, checked the recipe and garnish together, and followed the kitchen’s procedure before service resumed.</p>
+            </details>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <section class="section shell resume" id="resume" aria-labelledby="resume-title">
+      <div class="section-title">
+        <h2 id="resume-title">Classic résumé</h2>
+        <button class="button" id="print-resume" type="button" hidden>Print / Save as PDF</button>
+      </div>
+      <article class="resume-sheet" aria-label="Arjun Rao’s sample résumé">
+        <div class="resume-heading">
+          <img src="/samples/chef-portrait.jpg" alt="Arjun Rao’s sample chef headshot" loading="lazy">
+          <div><p class="kicker">Fictional sample résumé</p><h3>Arjun Rao</h3><p>Commis Chef · Mumbai, India</p></div>
+        </div>
+        <section class="resume-block"><h4>Profile</h4><p>Early-career chef with hotel training in hot kitchen and banquets. Comfortable with structured prep, portion control, and plating at the pass.</p></section>
+        <section class="resume-block"><h4>Cuisines</h4><p>Modern Indian (hotel kitchen), Italian (culinary lab), and Indo-Chinese (practice kitchen).</p></section>
+        <section class="resume-block"><h4>Kitchen experience</h4><p><strong>Hotel kitchen trainee · 2025</strong><br>Rotated through hot kitchen and banquets, assisting with mise en place, service pickup, batch plating, stock rotation, and shift handovers.</p></section>
+        <section class="resume-block"><h4>Education</h4><p><strong>Diploma in Culinary Arts · 2024–2025</strong><br>Kitchen fundamentals, basic pastry, menu planning, portion costing, and food safety coursework.</p></section>
+        <section class="resume-block"><h4>Service skills</h4><p>Knife skills, sauces, portion control, banquet plating, ingredient labelling, temperature logs, and allergen communication.</p></section>
+        <section class="resume-block"><h4>Languages</h4><p>English, Hindi, Marathi</p></section>
+        <section class="resume-block"><h4>Coursefolio</h4><p><a href="https://gloss-studio-editorial.sahdev-nishtha001.chatgpt.site/samples/chef">View the GLOSS chef coursefolio and project notes</a></p></section>
+      </article>
+    </section>
+  </main>
+  <footer class="shell">Arjun Rao, the placement, and the projects are fictional. Images are illustrative.</footer>
+  <script>
+    const filters = document.querySelector('.filters');
+    const buttons = Array.from(filters.querySelectorAll('button'));
+    const work = document.querySelectorAll('[data-work]');
+    filters.hidden = false;
+    for (const button of buttons) {
+      button.addEventListener('click', () => {
+        const selected = button.dataset.filter;
+        for (const option of buttons) option.setAttribute('aria-pressed', String(option === button));
+        for (const card of work) card.hidden = selected !== 'all' && card.dataset.work !== selected;
+      });
+    }
+    const print = document.getElementById('print-resume');
+    print.hidden = false;
+    print.addEventListener('click', () => window.print());
+  </script>
+</body>
+</html>

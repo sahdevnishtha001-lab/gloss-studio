@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <meta name="description" content="A fictional GLOSS model portfolio with an intro video, casting Polaroids, runway film and a printable classic resume.">
+  <title>Mira Sen · GLOSS Model Sample</title>
+  <style>
+    * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: #f5f1eb; color: #30212b; font: 16px/1.55 Arial, sans-serif; }
+    header, main, footer { width: min(1100px, 92%); margin: auto; }
+    header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; padding: 20px 0; border-bottom: 1px solid #d8cdd2; }
+    .brand { font-size: 27px; font-weight: 800; letter-spacing: -1px; }
+    nav, .filters, .hero-links { display: flex; flex-wrap: wrap; gap: 8px; }
+    a { color: #5d254d; }
+    nav a, button { font: inherit; color: #5d254d; background: transparent; border: 1px solid #846579; border-radius: 3px; padding: 7px 13px; text-decoration: none; cursor: pointer; }
+    button[aria-pressed="true"], .primary { background: #5d254d; color: white; }
+    :focus-visible { outline: 3px solid #93668c; outline-offset: 3px; }
+    .hero { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(20px, 6vw, 72px); padding: 38px 0; }
+    .hero img { width: 100%; height: 430px; object-fit: cover; object-position: center top; border-radius: 4px; }
+    h1, h2, h3 { font-family: Georgia, serif; font-weight: 400; line-height: 1.13; margin: .35em 0; }
+    h1 { font-size: clamp(52px, 9vw, 110px); letter-spacing: -.055em; }
+    h2 { font-size: clamp(32px, 5vw, 53px); }
+    h3 { font-size: 28px; }
+    .role { color: #5d254d; font-size: clamp(19px, 3vw, 28px); margin: .4em 0; }
+    .sample, .category { display: inline-block; font-size: 12px; font-weight: bold; letter-spacing: .055em; }
+    .sample { padding: 7px 11px; background: #e6ebdc; border-radius: 3px; }
+    .section { margin: 0 0 46px; scroll-margin-top: 16px; }
+    .hero-links { gap: 8px 20px; }
+    video { display: block; width: 100%; max-width: min(860px, 86vh); aspect-ratio: 32 / 27; object-fit: contain; background: #241a24; border-radius: 4px; }
+    .credit, footer { color: #625461; font-size: 13px; }
+    .intro { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: clamp(20px, 4vw, 44px); align-items: center; padding: clamp(16px, 3vw, 32px); background: #392631; color: #fff7ed; border-radius: 4px; }
+    .intro h2 { margin-top: 0; }
+    .intro figure { margin: 0; }
+    .intro video { max-width: none; height: auto; aspect-ratio: 16 / 9; }
+    .intro figcaption { margin-top: 8px; color: #edd9e3; font-size: 13px; }
+    .intro details { margin-top: 16px; font-size: 14px; }
+    .intro summary { cursor: pointer; }
+    .intro details p { margin-bottom: 0; }
+    .polaroids { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+    .polaroid { margin: 0; padding: clamp(6px, 1.1vw, 12px); background: #fffdf8; border: 1px solid #ded1d7; border-radius: 3px; box-shadow: 0 3px 9px #30212b0c; }
+    .polaroid img { display: block; width: 100%; aspect-ratio: 2 / 3; object-fit: contain; background: #ece8e2; }
+    .polaroid figcaption { padding: 9px 3px 3px; font-size: 14px; }
+    @media (max-width: 760px) { .polaroids { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    .filters { margin: 14px 0 18px; }
+    .shoots { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    .shoot { background: #fffaf6; border: 1px solid #ded1d7; border-radius: 4px; overflow: hidden; }
+    .shoot img { display: block; width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: top; }
+    .shoot[data-category="Commercial"] img,
+    .shoot[data-category="Digitals"] img,
+    .shoot[data-category="Jewellery"] img,
+    .shoot[data-category="Runway"] img { object-fit: contain; background: #eee8e3; }
+    .shoot-content { padding: 18px; }
+    .category { color: #5d254d; }
+    .shoot p { margin: 8px 0; }
+    .cv-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+    .cv { max-width: 800px; margin: auto; background: white; padding: clamp(20px, 5vw, 46px); border: 1px solid #ded1d7; }
+    .cv h3 { font-size: 40px; }
+    .cv h4 { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; border-bottom: 1px solid #d8cdd2; padding-bottom: 4px; margin: 16px 0 6px; }
+    .cv p, .cv ul { margin: 6px 0; }
+    .cv img { float: right; width: 86px; height: 105px; object-fit: cover; object-position: top; margin-left: 12px; }
+    footer { padding: 0 0 24px; }
+    @media (max-width: 650px) { .hero, .intro, .shoots { grid-template-columns: 1fr; } .hero img { height: 340px; } .shoot img { max-height: 460px; } }
+    @page { size: A4; margin: 13mm; }
+    @media print {
+      body { background: white; color: #222; font-size: 10.5pt; }
+      header, footer, #portfolio, .cv-toolbar { display: none !important; }
+      main { width: 100%; } .section { margin: 0; } .cv { max-width: none; padding: 0; border: 0; }
+      .cv section { break-inside: avoid; } .sample { padding: 0; background: transparent; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <span class="brand">GLOSS</span>
+    <nav aria-label="Model sample views">
+      <a href="#portfolio">Living portfolio</a>
+      <a href="#resume">Classic resume</a>
+    </nav>
+  </header>
+  <main>
+    <div id="portfolio">
+      <section class="hero" aria-labelledby="name">
+        <div>
+          <span class="sample">Fictional model sample</span>
+          <h1 id="name">Mira Sen</h1>
+          <p class="role">Runway &amp; Editorial Model</p>
+          <p>Mumbai, India · Runway, fashion and commercial</p>
+          <p>Clean lines, quiet expression and a strong walk. Explore Mira’s sample fashion, beauty and jewellery work.</p>
+          <div class="hero-links">
+            <a href="#intro">Watch intro ↓</a>
+            <a href="#polaroids">View Polaroids ↓</a>
+            <a href="#runway">Watch the runway walk ↓</a>
+          </div>
+        </div>
+        <img src="/samples/model-portrait.jpg" alt="Editorial sample portrait of Mira Sen">
+      </section>
+      <section class="section intro" id="intro" aria-labelledby="intro-title">
+        <div>
+          <h2 id="intro-title">Intro video</h2>
+          <p>Hear Mira’s introduction as the video moves through her front, side, three-quarter and full-length casting photos.</p>
+          <details>
+            <summary>Read the transcript</summary>
+            <p>Hi, I’m Mira Sen. I’m a model based in Mumbai, India. I’m one hundred and seventy-five centimeters tall. Here are my casting profiles. I work across runway, fashion editorial, and commercial shoots. Thanks for watching.</p>
+          </details>
+        </div>
+        <figure>
+          <video controls playsinline preload="metadata" width="960" height="540" aria-labelledby="intro-title" aria-describedby="intro-credit" poster="/samples/model-intro.jpg" src="/samples/model-intro.mp4">
+            <track kind="captions" src="/samples/model-intro-en.vtt" srclang="en" label="English" default>
+          </video>
+          <figcaption id="intro-credit">Fictional casting intro with still images and synthetic narration.</figcaption>
+        </figure>
+      </section>
+      <section class="section" id="polaroids" aria-labelledby="polaroids-title">
+        <h2 id="polaroids-title">Polaroids</h2>
+        <p>Casting views in natural light, with minimal styling.</p>
+        <div class="polaroids">
+          <figure class="polaroid">
+            <img src="/samples/model-polaroid-front.jpg" alt="Mira facing the camera with a neutral expression" loading="lazy">
+            <figcaption>Front close-up</figcaption>
+          </figure>
+          <figure class="polaroid">
+            <img src="/samples/model-polaroid-profile.jpg" alt="Mira in side profile with her braids behind her shoulder" loading="lazy">
+            <figcaption>Side profile</figcaption>
+          </figure>
+          <figure class="polaroid">
+            <img src="/samples/model-polaroid-three-quarter.jpg" alt="Mira shown waist-up with her shoulders turned toward the camera" loading="lazy">
+            <figcaption>Three-quarter</figcaption>
+          </figure>
+          <figure class="polaroid">
+            <img src="/samples/model-digitals.jpg" alt="Mira standing head to toe in a black tank and blue jeans" loading="lazy">
+            <figcaption>Full length</figcaption>
+          </figure>
+        </div>
+        <p class="credit">AI-generated casting examples for the fictional model.</p>
+      </section>
+      <section class="section" id="runway" aria-labelledby="runway-title">
+        <h2 id="runway-title">Runway walk</h2>
+        <video controls playsinline preload="metadata" poster="/samples/model-runway.jpg" aria-label="Head-to-toe runway walk demonstration" src="/samples/model-runway.mp4"></video>
+        <p class="credit">Runway demonstration excerpt and still by <a href="https://www.pexels.com/video/models-doing-a-catwalk-9511841/">cottonbro studio on Pexels</a>. The stock performer is the visual reference for the sample shoot images.</p>
+      </section>
+      <section class="section" id="shoots" aria-labelledby="shoots-title">
+        <h2 id="shoots-title">Shoots &amp; stories</h2>
+        <div class="filters" role="group" aria-label="Filter shoot categories">
+          <button type="button" data-filter="All" aria-pressed="true">All shoots</button>
+          <button type="button" data-filter="Editorial" aria-pressed="false">Editorial</button>
+          <button type="button" data-filter="Beauty" aria-pressed="false">Beauty</button>
+          <button type="button" data-filter="Jewellery" aria-pressed="false">Jewellery</button>
+          <button type="button" data-filter="Commercial" aria-pressed="false">Commercial</button>
+          <button type="button" data-filter="Digitals" aria-pressed="false">Digitals</button>
+          <button type="button" data-filter="Runway" aria-pressed="false">Runway</button>
+        </div>
+        <div class="shoots">
+          <article class="shoot" data-category="Editorial">
+            <img src="/samples/model-portrait.jpg" alt="Fashion editorial with a sculptural charcoal coat and diagonal light" loading="lazy">
+            <div class="shoot-content"><span class="category">EDITORIAL</span><h3>After the Light</h3><p>Sculptural tailoring, an angular pose and hard side light build a fashion story around the coat’s silhouette.</p></div>
+          </article>
+          <article class="shoot" data-category="Beauty">
+            <img src="/samples/model-beauty.jpg" alt="Close-up makeup campaign with plum eyeshadow and glossy lips" loading="lazy">
+            <div class="shoot-content"><span class="category">BEAUTY</span><h3>Plum Gloss</h3><p>A makeup close-up centred on plum eyeshadow, glossy lips and skin texture.</p></div>
+          </article>
+          <article class="shoot" data-category="Jewellery">
+            <img src="/samples/model-jewellery.jpg" alt="Jewellery campaign detail showing a gold earring, chain and ring" loading="lazy">
+            <div class="shoot-content"><span class="category">JEWELLERY</span><h3>Gold in Focus</h3><p>Swept-back braids and a hand near the collarbone put the sculptural earring, chain and ring in view.</p></div>
+          </article>
+          <article class="shoot" data-category="Commercial">
+            <img src="/samples/model-commercial.jpg" alt="Full-length e-commerce image of a cobalt shirt and cream trousers" loading="lazy">
+            <div class="shoot-content"><span class="category">COMMERCIAL / E-COMMERCE</span><h3>Everyday Ease</h3><p>A front-facing catalogue shot with even light to show the cobalt shirt’s fit, buttons and hem alongside the cream trousers.</p></div>
+          </article>
+          <article class="shoot" data-category="Digitals">
+            <img src="/samples/model-digitals.jpg" alt="Full-length sample digital in jeans and a black tank top" loading="lazy">
+            <div class="shoot-content"><span class="category">DIGITALS</span><h3>Studio Digitals</h3><p>A front-facing, full-length reference in simple clothing against a neutral wall.</p></div>
+          </article>
+          <article class="shoot" data-category="Runway">
+            <img src="/samples/model-runway.jpg" alt="Full-length still of the runway demonstration performer" loading="lazy">
+            <div class="shoot-content"><span class="category">RUNWAY</span><h3>Runway Walk</h3><p>A still from the demonstration shows the model’s posture, garment movement and full silhouette.</p><a href="#runway">Watch the walk ↑</a></div>
+          </article>
+        </div>
+      </section>
+    </div>
+    <section class="section" id="resume" aria-labelledby="resume-title">
+      <div class="cv-toolbar"><h2 id="resume-title">Classic resume</h2><button class="primary" id="print-resume" type="button">Print / Save as PDF</button></div>
+      <article class="cv">
+        <img src="/samples/model-portrait.jpg" alt="Mira Sen sample profile photo" loading="lazy">
+        <span class="sample">Fictional sample resume</span>
+        <h3>Mira Sen</h3>
+        <p><strong>Runway &amp; Editorial Model</strong> · Mumbai, India</p>
+        <section><h4>Profile</h4><p>Model focused on fashion editorial, beauty and jewellery, with runway and posing workshop experience.</p></section>
+        <section><h4>Model details</h4><p>Height 175 cm · Bust / waist / hips 84 / 62 / 89 cm · Dark brown hair · Brown eyes</p></section>
+        <section><h4>Selected projects</h4><ul><li><strong>After the Light</strong> · Fashion editorial</li><li><strong>Plum Gloss</strong> · Beauty makeup</li><li><strong>Gold in Focus</strong> · Jewellery campaign</li><li><strong>Everyday Ease</strong> · E-commerce catalogue</li></ul></section>
+        <section><h4>Training &amp; skills</h4><p>Runway and posing workshop · Runway walk, editorial posing, close-up beauty and jewellery posing.</p></section>
+        <section><h4>Portfolio</h4><p><a href="https://gloss-studio-editorial.sahdev-nishtha001.chatgpt.site/samples/model">View the GLOSS living portfolio and runway demonstration</a>.</p></section>
+      </article>
+    </section>
+  </main>
+  <footer>Mira Sen, her measurements and shoot stories are fictional sample content. The editorial, beauty, jewellery, e-commerce and casting images are AI-generated using the stock runway performer as a visual reference.</footer>
+  <script>
+    const filters = document.querySelectorAll('[data-filter]');
+    const shoots = document.querySelectorAll('[data-category]');
+    filters.forEach(button => {
+      button.addEventListener('click', () => {
+        const category = button.dataset.filter;
+        filters.forEach(filter => filter.setAttribute('aria-pressed', String(filter === button)));
+        shoots.forEach(shoot => { shoot.hidden = category !== 'All' && shoot.dataset.category !== category; });
+      });
+    });
+    document.getElementById('print-resume').addEventListener('click', () => window.print());
+  </script>
+</body>
+</html>

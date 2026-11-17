@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Anaya Rao · GLOSS Aviation Sample</title>
+  <meta name="description" content="See a completed GLOSS cabin crew living portfolio and classic resume for a fictional candidate.">
+  <style>
+    *{box-sizing:border-box} [hidden]{display:none!important}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:#f5f1eb;color:#30212b;font:16px/1.6 Arial,sans-serif}
+    header,main,footer{width:min(1080px,92%);margin:auto}
+    header{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding:20px 0;border-bottom:1px solid #d8cdd2}
+    .brand{font-size:27px;font-weight:800;letter-spacing:-1px}
+    nav{display:flex;gap:8px;flex-wrap:wrap}
+    nav a,button{font:inherit;border:1px solid #846579;background:transparent;color:inherit;border-radius:3px;padding:8px 14px;text-decoration:none;cursor:pointer}
+    nav a[aria-current],button{color:white;background:#5d254d}
+    a{color:#5d254d} :focus-visible{outline:3px solid #93668c;outline-offset:3px}
+    .hero{display:grid;grid-template-columns:1.35fr 1fr;align-items:center;gap:clamp(22px,5vw,68px);padding:36px 0}
+    .hero img{width:100%;height:440px;object-fit:cover;object-position:center top;border-radius:4px}
+    h1,h2,h3{font-family:Georgia,serif;line-height:1.14;font-weight:400;margin:.3em 0}
+    h1{font-size:clamp(46px,8vw,99px);letter-spacing:-.05em}
+    h2{font-size:clamp(27px,4vw,40px)} h3{font-size:22px}
+    .role{font-size:clamp(19px,3vw,28px);color:#5d254d;margin:.3em 0}
+    .sample,.eyebrow{font-size:12px;letter-spacing:.08em;font-weight:bold}
+    .sample{background:#e6ebdc;padding:8px 12px;display:inline-block;border-radius:3px}
+    .checks{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0 0 26px}
+    .checks a{display:block;background:#fffaf6;border:1px solid #d8cdd2;padding:5px 10px;border-radius:4px;text-decoration:none;font-size:13px}
+    .tick{color:#38614a;font-family:Arial,sans-serif;font-weight:bold}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .panel{background:#fffaf6;border:1px solid #ded1d7;padding:clamp(18px,3vw,30px);border-radius:4px;scroll-margin-top:16px}
+    .wide{grid-column:1/-1}
+    .photos{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    figure{margin:12px 0 0} figure img{width:100%;height:340px;object-fit:contain;background:#ece3de;border-radius:3px}
+    figcaption,small{color:#655763}
+    dl{display:grid;grid-template-columns:max-content 1fr;gap:8px 20px} dt{font-weight:bold} dd{margin:0}
+    details{border-top:1px solid #ded1d7;padding:13px 0} summary{cursor:pointer;font-weight:bold}
+    footer{padding:24px 0;color:#655763;font-size:13px}
+    .cv{margin:24px auto;max-width:780px;background:white;padding:clamp(20px,5vw,48px);border:1px solid #ded1d7}
+    .cv h1{font-size:42px}.cv h2{font:700 13px/1.4 Arial,sans-serif;text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid #d8cdd2;padding-bottom:4px;margin-top:18px}
+    .cv p,.cv ul{margin:6px 0}.cv img{float:right;width:86px;height:105px;object-fit:cover;object-position:top;margin-left:12px}
+    .cv-toolbar{max-width:780px;margin:20px auto 0;display:flex;justify-content:space-between;align-items:center;gap:12px}
+    @media(max-width:640px){.hero,.grid{grid-template-columns:1fr}.hero img{height:340px}.photos{gap:8px}figure img{height:215px}.wide{grid-column:auto}nav a{padding:6px 10px;font-size:14px}}
+    @page{size:A4;margin:13mm}
+    @media print{body{background:white;color:#222;font-size:10.5pt}header,footer,#portfolio,.cv-toolbar{display:none!important}main{width:100%}#resume[hidden]{display:block!important}.cv{max-width:none;margin:0;padding:0;border:0}.cv h1{font-size:31pt}.cv h2{margin-top:11px}.cv section{break-inside:avoid}.sample{padding:0;background:transparent}}
+  </style>
+</head>
+<body>
+  <header>
+    <span class="brand">GLOSS</span>
+    <nav aria-label="Sample views">
+      <a href="#portfolio" id="portfolio-link">Living portfolio</a>
+      <a href="#resume" id="resume-link">Classic resume</a>
+    </nav>
+  </header>
+  <main>
+    <div id="portfolio">
+      <section class="hero" aria-labelledby="name">
+        <div>
+          <span class="sample">Fictional cabin crew sample</span>
+          <h1 id="name">Anaya Rao</h1>
+          <p class="role">Aspiring Cabin Crew</p>
+          <p>Mumbai, India · Open to relocation</p>
+          <p>Guest services professional with two years of hospitality experience. I enjoy helping people feel at ease, especially when plans change and they need a clear next step.</p>
+          <a href="#resume">View classic resume →</a>
+        </div>
+        <img src="/samples/aviation-portrait.png" alt="Sample portrait of Anaya in a plum blazer and scarf">
+      </section>
+      <ul class="checks" aria-label="Completed portfolio sections">
+        <li><a href="#photos"><span class="tick">✓</span> Professional pictures</a></li>
+        <li><a href="#intro"><span class="tick">✓</span> Introduction</a></li>
+        <li><a href="#languages"><span class="tick">✓</span> Languages</a></li>
+        <li><a href="#service"><span class="tick">✓</span> Customer service</a></li>
+        <li><a href="#training"><span class="tick">✓</span> Training</a></li>
+        <li><a href="#achievements"><span class="tick">✓</span> Achievements</a></li>
+        <li><a href="#practice"><span class="tick">✓</span> Practice scenarios</a></li>
+      </ul>
+      <div class="grid">
+        <section class="panel wide" id="photos">
+          <h2><span class="tick" aria-hidden="true">✓</span> Professional pictures</h2>
+          <div class="photos">
+            <figure><img src="/samples/aviation-portrait.png" alt="Professional portrait in a plum blazer" loading="lazy"><figcaption>Professional portrait</figcaption></figure>
+            <figure><img src="/samples/aviation-full-length.png" alt="Full-length professional photo in an airport terminal" loading="lazy"><figcaption>Full-length professional photo</figcaption></figure>
+          </div>
+        </section>
+        <section class="panel" id="intro">
+          <h2><span class="tick" aria-hidden="true">✓</span> Introduction</h2>
+          <p>Hi, I’m Anaya. Working at a busy hotel front desk taught me to listen carefully, explain options clearly and follow through. I’d like to bring that same care and teamwork to cabin crew service.</p>
+        </section>
+        <section class="panel" id="languages">
+          <h2><span class="tick" aria-hidden="true">✓</span> Languages</h2>
+          <dl><dt>English</dt><dd>Fluent</dd><dt>Hindi</dt><dd>Native</dd><dt>Marathi</dt><dd>Conversational</dd></dl>
+        </section>
+        <section class="panel" id="service">
+          <h2><span class="tick" aria-hidden="true">✓</span> Customer service</h2>
+          <h3>Guest Services Associate</h3>
+          <p><small>Harbour House Hotel, Mumbai · Aug 2024–Oct 2026</small></p>
+          <p>Handled arrivals, special requests and complaints. When a family’s room was delayed, I arranged luggage storage, offered a place to wait and kept them updated while coordinating with housekeeping.</p>
+        </section>
+        <section class="panel" id="training">
+          <h2><span class="tick" aria-hidden="true">✓</span> Training</h2>
+          <ul><li>First aid and CPR workshop · Harbour House staff training, 2025</li><li>Guest service and complaint handling · Harbour House staff training, 2024</li><li>Diploma in Hospitality Operations · Westbridge Institute, 2024</li></ul>
+        </section>
+        <section class="panel" id="achievements">
+          <h2><span class="tick" aria-hidden="true">✓</span> Achievements</h2>
+          <ul><li>Guest Care Recognition · Harbour House Hotel, 2025</li><li>Helped onboard three new front-desk associates in 2026.</li></ul>
+        </section>
+        <section class="panel" id="practice">
+          <h2><span class="tick" aria-hidden="true">✓</span> Practice scenarios</h2>
+          <details><summary>Helping a nervous first-time flyer</summary><p>I would acknowledge their concern, ask what would help and explain the next step in plain language. I’d check in again when duties allow.</p></details>
+          <details><summary>Responding to a seating concern</summary><p>I would listen, explain what I can check and coordinate with the crew lead before offering any change. I’d return with an update, even if a move isn’t possible.</p></details>
+          <details><summary>Handling an unavailable meal request</summary><p>I would acknowledge the request and check what alternatives are available. For allergy concerns, I would follow airline procedures and consult the crew lead before making any assurances.</p></details>
+        </section>
+      </div>
+    </div>
+    <div id="resume" hidden>
+      <div class="cv-toolbar"><a href="#portfolio">← Living portfolio</a><button id="print-resume" type="button">Print / Save as PDF</button></div>
+      <article class="cv" aria-label="Classic resume">
+        <img src="/samples/aviation-portrait.png" alt="Anaya Rao sample profile photo">
+        <span class="sample">Fictional sample resume</span>
+        <h1>Anaya Rao</h1>
+        <p><strong>Aspiring Cabin Crew</strong> · Mumbai, India · Open to relocation</p>
+        <section><h2>Profile</h2><p>Guest services professional with two years of hospitality experience in guest care, complaint handling and team coordination. Seeking a first cabin crew role.</p></section>
+        <section><h2>Experience</h2><p><strong>Guest Services Associate</strong> · Harbour House Hotel, Mumbai · Aug 2024–Oct 2026</p><ul><li>Supported guest arrivals, special requests and service recovery at a busy front desk.</li><li>Coordinated with housekeeping to resolve delays and kept guests informed.</li><li>Helped onboard three front-desk associates in 2026.</li></ul></section>
+        <section><h2>Education &amp; training</h2><p>Diploma in Hospitality Operations · Westbridge Institute, 2024</p><p>First aid and CPR workshop, 2025 · Guest service and complaint handling, 2024</p></section>
+        <section><h2>Languages</h2><p>English (fluent) · Hindi (native) · Marathi (conversational)</p></section>
+        <section><h2>Skills &amp; recognition</h2><p>Guest care, clear communication, service recovery and teamwork.</p><p>Guest Care Recognition · Harbour House Hotel, 2025</p></section>
+      </article>
+    </div>
+  </main>
+  <footer>GLOSS aviation sample. The candidate, work history and credentials are fictional. Photos are AI-generated. Scenarios are practice responses.</footer>
+  <script>
+    const portfolio = document.getElementById('portfolio');
+    const resume = document.getElementById('resume');
+    function showView() {
+      const showingResume = location.hash === '#resume';
+      portfolio.hidden = showingResume;
+      resume.hidden = !showingResume;
+      document.getElementById('portfolio-link').toggleAttribute('aria-current', !showingResume);
+      document.getElementById('resume-link').toggleAttribute('aria-current', showingResume);
+      if (showingResume || location.hash === '#portfolio') window.scrollTo(0, 0);
+    }
+    window.addEventListener('hashchange', showView);
+    document.getElementById('print-resume').addEventListener('click', () => window.print());
+    showView();
+  </script>
+</body>
+</html>

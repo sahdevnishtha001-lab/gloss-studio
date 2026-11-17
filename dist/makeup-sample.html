@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Isha Mehta · GLOSS Makeup Artist Sample</title>
+  <meta name="description" content="Isha Mehta’s fictional makeup portfolio with a bridal makeup sequence, five looks, three shoot examples and a printable resume.">
+  <style>
+    * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: #f5f1eb; color: #30212b; font: 16px/1.55 Arial, sans-serif; }
+    header, main, footer { width: min(1100px, 92%); margin: auto; }
+    header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; padding: 20px 0; border-bottom: 1px solid #d8cdd2; }
+    .brand { font-size: 27px; font-weight: 800; letter-spacing: -1px; }
+    nav, .filters { display: flex; flex-wrap: wrap; gap: 8px; }
+    a { color: #5d254d; }
+    nav a, button { font: inherit; color: #5d254d; background: transparent; border: 1px solid #846579; border-radius: 3px; padding: 7px 13px; text-decoration: none; cursor: pointer; }
+    button[aria-pressed="true"], .primary { background: #5d254d; color: white; }
+    :focus-visible { outline: 3px solid #93668c; outline-offset: 3px; }
+    .hero { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(20px, 6vw, 72px); padding: 38px 0; }
+    .hero img { width: 100%; height: 430px; object-fit: cover; object-position: center top; border-radius: 4px; }
+    h1, h2, h3 { font-family: Georgia, serif; font-weight: 400; line-height: 1.13; margin: .35em 0; }
+    h1 { font-size: clamp(52px, 9vw, 110px); letter-spacing: -.055em; }
+    h2 { font-size: clamp(32px, 5vw, 53px); }
+    h3 { font-size: 28px; }
+    .role { color: #5d254d; font-size: clamp(19px, 3vw, 28px); margin: .4em 0; }
+    .sample, .category { display: inline-block; font-size: 12px; font-weight: bold; letter-spacing: .055em; }
+    .sample { padding: 7px 11px; background: #e6ebdc; border-radius: 3px; }
+    .section { margin: 0 0 46px; scroll-margin-top: 16px; }
+    .credit, footer { color: #625461; font-size: 13px; }
+    .filters { margin: 14px 0 18px; }
+    .shoots { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    .shoot { background: #fffaf6; border: 1px solid #ded1d7; border-radius: 4px; overflow: hidden; }
+    .shoot img { display: block; width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: top; }
+    .shoot[data-category="Commercial"] img,
+    .shoot[data-category="Digitals"] img,
+    .shoot[data-category="Jewellery"] img,
+    .shoot[data-category="Runway"] img { object-fit: contain; background: #eee8e3; }
+    .shoot-content { padding: 18px; }
+    .category { color: #5d254d; }
+    .shoot p { margin: 8px 0; }
+    .cv-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+    .cv { max-width: 800px; margin: auto; background: white; padding: clamp(20px, 5vw, 46px); border: 1px solid #ded1d7; }
+    .cv h3 { font-size: 40px; }
+    .cv h4 { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; border-bottom: 1px solid #d8cdd2; padding-bottom: 4px; margin: 16px 0 6px; }
+    .cv p, .cv ul { margin: 6px 0; }
+    .cv img { float: right; width: 104px; height: 130px; object-fit: cover; object-position: top; margin-left: 12px; }
+    .bridal-film { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: clamp(20px, 4vw, 44px); align-items: center; background: #3c222e; color: #fff7ed; padding: clamp(16px, 3vw, 32px); border-radius: 4px; }
+    .bridal-film figure { margin: 0; }
+    .bridal-film video { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; background: #241a24; border-radius: 3px; }
+    .bridal-film .credit { color: #f1d5d9; margin-top: 8px; }
+    .bridal-film h2 { margin-top: 0; }
+    #experience { scroll-margin-top: 16px; }
+    #shoot-gallery > h3 { margin: 24px 0 14px; }
+    #shoot-gallery h4 { margin: 0; font: 24px/1.2 Georgia, serif; }
+    @media (max-width: 650px) { .bridal-film { grid-template-columns: 1fr; } }
+    footer { padding: 0 0 24px; }
+    @media (max-width: 650px) { .hero, .shoots { grid-template-columns: 1fr; } .hero img { height: 340px; } .shoot img { max-height: 460px; } }
+    @page { size: A4; margin: 13mm; }
+    @media print {
+      body { background: white; color: #222; font-size: 10.5pt; }
+      header, footer, #portfolio, .cv-toolbar { display: none !important; }
+      main { width: 100%; } .section { margin: 0; } .cv { max-width: none; padding: 0; border: 0; }
+      .cv section { break-inside: avoid; } .sample { padding: 0; background: transparent; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <span class="brand">GLOSS</span>
+    <nav aria-label="Makeup sample views">
+      <a href="#portfolio">Living portfolio</a><a href="#resume">Classic resume</a>
+    </nav>
+  </header>
+  <main>
+    <div id="portfolio">
+      <section class="hero" aria-labelledby="name">
+        <div>
+          <span class="sample">Fictional makeup artist sample</span>
+          <h1 id="name">Isha Mehta</h1>
+          <p class="role">Makeup Artist</p>
+          <p>Mumbai, India · Shoots, events and bridal</p>
+          <p>I build each look around the client, the lighting and the brief. Explore bridal, party, glamour, matte and camera-ready HD makeup.</p>
+          <a href="#bridal-film">Watch bridal makeup ↓</a>
+          <p><a href="#looks">See looks and shoots ↓</a></p>
+        </div>
+        <img src="/samples/makeup-headshot.jpg" alt="Isha Mehta, sample makeup artist">
+      </section>
+      <section class="section bridal-film" id="bridal-film" aria-labelledby="bridal-film-title">
+        <div>
+          <h2 id="bridal-film-title">Bridal makeup in motion</h2>
+          <p>Follow Isha as she adds blush, blends bronze shadow and finishes a bride’s look with a deep rose lip.</p>
+        </div>
+        <figure>
+          <video controls playsinline preload="metadata" width="960" height="640" aria-labelledby="bridal-film-title" aria-describedby="bridal-film-credit" poster="/samples/makeup-bridal-film.jpg" src="/samples/makeup-bridal-film.mp4">
+            <a href="/samples/makeup-bridal-film.mp4" download="gloss-bridal-makeup.mp4">Download the bridal makeup sequence</a>
+          </video>
+          <figcaption class="credit" id="bridal-film-credit">AI-illustrated sequence based on the fictional artist’s profile portrait.</figcaption>
+        </figure>
+      </section>
+      <section id="looks" class="section">
+        <h2>Looks &amp; stories</h2>
+        <div class="filters" id="experience" role="group" aria-label="Filter makeup looks and shoots">
+          <button type="button" data-filter="All" aria-pressed="true">All looks</button>
+          <button type="button" data-filter="Party" aria-pressed="false">Party</button>
+          <button type="button" data-filter="Glamour" aria-pressed="false">Glamour</button>
+          <button type="button" data-filter="Matte" aria-pressed="false">Matte</button>
+          <button type="button" data-filter="HD" aria-pressed="false">HD</button>
+          <button type="button" data-filter="Bridal" aria-pressed="false">Bridal</button>
+          <button type="button" data-filter="Shoot" aria-pressed="false" aria-controls="shoot-gallery">Shoot</button>
+        </div>
+        <div class="shoots" id="looks-gallery">
+          <article class="shoot" data-category="Party">
+            <img src="/samples/makeup-party.jpg" alt="Party makeup example" loading="lazy">
+            <div class="shoot-content"><span class="category">Party</span><h3>Copper After Dark</h3><p>Copper shimmer, a fine wing and berry gloss for an evening look.</p></div>
+          </article>
+          <article class="shoot" data-category="Glamour">
+            <img src="/samples/makeup-glamour.jpg" alt="Glamour makeup example" loading="lazy">
+            <div class="shoot-content"><span class="category">Glamour</span><h3>Plum Smoke</h3><p>Smoky eyes, defined lashes and a nude lip for a dramatic studio portrait.</p></div>
+          </article>
+          <article class="shoot" data-category="Matte">
+            <img src="/samples/makeup-matte.jpg" alt="Matte makeup example" loading="lazy">
+            <div class="shoot-content"><span class="category">Matte</span><h3>Soft Matte</h3><p>A matte base, taupe eyes and a muted rose lip in daylight.</p></div>
+          </article>
+          <article class="shoot" data-category="HD">
+            <img src="/samples/makeup-hd.jpg" alt="HD makeup example" loading="lazy">
+            <div class="shoot-content"><span class="category">HD</span><h3>Rose &amp; Gold</h3><p>A camera-ready bridal close-up with a finely blended base and rose-gold eyes.</p></div>
+          </article>
+          <article class="shoot" data-category="Bridal">
+            <img src="/samples/makeup-bridal.jpg" alt="Traditional bridal makeup with bronze eyes, red lipstick and a red dupatta" loading="lazy">
+            <div class="shoot-content"><span class="category">Bridal</span><h3>Wedding Morning</h3><p>Bronze lids, soft kohl and a warm red lip selected to complement the embroidered red dupatta and gold jewellery.</p></div>
+          </article>
+        </div>
+        <section id="shoot-gallery" aria-labelledby="shoot-gallery-title" hidden>
+          <h3 id="shoot-gallery-title">Shoot experience</h3>
+          <div class="shoots">
+            <article class="shoot">
+              <img src="/samples/makeup-shoot-beauty.jpg" alt="Beauty campaign model with soft matte eye makeup and a warm nude lip" loading="lazy">
+              <div class="shoot-content"><h4>Beauty campaign</h4><p>Matched the base under studio lighting and checked shine between close-ups.</p></div>
+            </article>
+            <article class="shoot">
+              <img src="/samples/makeup-shoot-fashion.jpg" alt="Fashion editorial model with a smoky plum cat eye" loading="lazy">
+              <div class="shoot-content"><h4>Fashion editorial</h4><p>Paired a smoky eye with the wardrobe and kept the makeup consistent across outfit changes.</p></div>
+            </article>
+            <article class="shoot">
+              <img src="/samples/makeup-shoot-bridal.jpg" alt="Bridal editorial model with bronze eyes, a red lip and gold jewellery" loading="lazy">
+              <div class="shoot-content"><h4>Bridal editorial</h4><p>Matched the makeup to the red and gold styling and checked the finish under daylight and flash.</p></div>
+            </article>
+          </div>
+        </section>
+      </section>
+    </div>
+    <section class="section" id="resume" aria-labelledby="resume-title">
+      <div class="cv-toolbar"><h2 id="resume-title">Classic resume</h2><button class="primary" id="print-resume" type="button">Print / Save as PDF</button></div>
+      <article class="cv">
+        <img src="/samples/makeup-headshot.jpg" alt="Isha Mehta, sample makeup artist">
+        <span class="sample">Fictional sample resume</span>
+        <h3>Isha Mehta</h3>
+        <p><strong>Makeup Artist</strong> · Mumbai, India</p>
+        <section><h4>Profile</h4><p>Freelance makeup artist for beauty shoots, events and bridal looks. Works with photographers and stylists to match the finish to the brief and lighting.</p></section>
+        <section><h4>Experience</h4><p><strong>Freelance Makeup Artist</strong> · Mumbai · 2023–present</p><ul><li>Prepared makeup references, matched complexion products and planned touch-ups for studio shoots.</li><li>Created party and bridal looks after discussing skin preferences, wardrobe and lighting.</li></ul></section>
+        <section><h4>Shoot experience</h4><p>Beauty campaign · Matte finish and close-up touch-ups<br>Fashion editorial · Makeup continuity across outfit changes<br>Bridal editorial · Daylight and flash checks</p></section>
+        <section><h4>Selected looks</h4><p>Copper After Dark · Party<br>Plum Smoke · Glamour<br>Soft Matte · Matte<br>Rose &amp; Gold · HD bridal<br>Wedding Morning · Traditional bridal</p></section>
+        <section><h4>Training &amp; skills</h4><p>Professional makeup course, 2023. Skin prep, shade matching, matte and HD finishes, kit hygiene, and on-set touch-ups.</p></section>
+        <section><h4>Portfolio</h4><p><a href="https://gloss-studio-editorial.sahdev-nishtha001.chatgpt.site/samples/makeup">View the living portfolio</a></p></section>
+      </article>
+    </section>
+  </main>
+  <footer>Isha Mehta and the shoot credits are fictional. The portraits, makeup looks and bridal sequence use AI-generated imagery.</footer>
+  <script>
+    const filters = document.querySelectorAll('[data-filter]');
+    const looks = document.querySelectorAll('[data-category]');
+    const looksGallery = document.getElementById('looks-gallery');
+    const shootGallery = document.getElementById('shoot-gallery');
+    const shootFilter = document.querySelector('[data-filter="Shoot"]');
+    filters.forEach(button => {
+      button.addEventListener('click', () => {
+        const category = button.dataset.filter;
+        const showShoots = button === shootFilter;
+        filters.forEach(filter => filter.setAttribute('aria-pressed', String(filter === button)));
+        looksGallery.hidden = showShoots;
+        shootGallery.hidden = !showShoots;
+        looks.forEach(look => { look.hidden = category !== 'All' && look.dataset.category !== category; });
+      });
+    });
+    const showLinkedShoots = () => { if (window.location.hash === '#experience') shootFilter.click(); };
+    window.addEventListener('hashchange', showLinkedShoots);
+    showLinkedShoots();
+    document.getElementById('print-resume').addEventListener('click', () => window.print());
+  </script>
+</body>
+</html>

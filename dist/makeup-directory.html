@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Find makeup artists · GLOSS</title>
+  <style>
+    *{box-sizing:border-box}[hidden]{display:none!important}body{margin:0;background:#f5f1eb;color:#30212b;font:16px/1.55 Arial,sans-serif}header,main{width:min(1000px,92%);margin:auto}header{display:flex;flex-wrap:wrap;align-items:center;gap:18px;padding:20px 0;border-bottom:1px solid #d8cdd2}.brand{font-size:26px;font-weight:bold;text-decoration:none}main{padding:32px 0}h1,h2,h3{font:400 32px/1.15 Georgia,serif;margin:.35em 0}h1{font-size:clamp(38px,7vw,66px)}a{color:#5d254d}select,button{font:inherit;padding:8px 12px;border:1px solid #846579;border-radius:3px;background:#fffaf6;color:#30212b}button{cursor:pointer;color:white;background:#5d254d}label{display:block;font-weight:bold;margin:24px 0 12px}label select{display:block;margin-top:6px;width:min(100%,330px)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,245px),1fr));gap:14px}.card{border:1px solid #ded1d7;border-radius:4px;background:#fffaf6;padding:18px}.card p{margin:.5em 0}.card a{display:inline-block;margin:6px 14px 0 0}.status{color:#625461}.manage{margin-top:38px;border-top:1px solid #d8cdd2;padding-top:20px}
+  </style>
+</head>
+<body>
+  <header><a class="brand" href="/">GLOSS</a><a href="/agencies">Agency network</a><a href="/samples/makeup">Makeup artist sample</a></header>
+  <main>
+    <h1>Find makeup artists</h1>
+    <p>Choose a city to find GLOSS-approved artists who have agreed to be listed. Open a portfolio to view their work and any contact options they’ve shared.</p>
+    <label>City<select id="city"><option value="">All cities</option></select></label>
+    <p id="status" class="status" role="status">Loading artists…</p>
+    <div id="listings" class="grid"></div>
+    <p>Makeup artists can request a listing when publishing their portfolio in the <a href="/#builder">GLOSS builder</a>.</p>
+    <section id="manage" class="manage" hidden>
+      <h2>Listing requests</h2>
+      <p>Review the portfolio and confirm the collaboration before approving a listing.</p>
+      <p id="manage-status" role="status"></p>
+      <div id="requests" class="grid"></div>
+    </section>
+  </main>
+  <script>
+    const city = document.getElementById('city');
+    const status = document.getElementById('status');
+    const listings = document.getElementById('listings');
+    const requests = document.getElementById('requests');
+    const manage = document.getElementById('manage');
+    const manageStatus = document.getElementById('manage-status');
+    let loadNumber = 0;
+
+    function card(artist, review = false) {
+      const article = document.createElement('article');
+      article.className = 'card';
+      const name = document.createElement('h3');
+      name.textContent = artist.name;
+      const details = document.createElement('p');
+      details.textContent = [artist.city, artist.specialty].filter(Boolean).join(' · ');
+      const link = document.createElement('a');
+      link.href = '/p/' + encodeURIComponent(artist.id);
+      link.textContent = 'View portfolio ↗';
+      article.append(name, details, link);
+      if (review) {
+        const button = document.createElement('button');
+        button.textContent = artist.approved ? 'Remove listing' : 'Approve listing';
+        button.addEventListener('click', async () => {
+          button.disabled = true;
+          manageStatus.textContent = 'Saving…';
+          try {
+            const response = await fetch('/api/makeup-directory', {
+              method: 'POST',
+              headers: {'content-type': 'application/json'},
+              body: JSON.stringify({id: artist.id, revision: artist.revision, approved: !artist.approved}),
+            });
+            const result = await response.json();
+            if (!response.ok) throw Error(result.error || 'Could not update listing.');
+            manageStatus.textContent = artist.approved ? 'Listing removed.' : 'Listing approved.';
+            await load();
+          } catch (error) {
+            manageStatus.textContent = error.message;
+          } finally {
+            button.disabled = false;
+          }
+        });
+        article.append(button);
+      }
+      return article;
+    }
+
+    async function load() {
+      const currentLoad = ++loadNumber;
+      const selected = city.value;
+      status.textContent = 'Loading artists…';
+      try {
+        const response = await fetch('/api/makeup-directory?' + new URLSearchParams({city: selected}));
+        if (!response.ok) throw Error('Could not load the directory. Refresh to try again.');
+        const data = await response.json();
+        if (currentLoad !== loadNumber) return;
+        city.replaceChildren(new Option('All cities', ''), ...data.cities.map(value => new Option(value, value)));
+        if (data.cities.includes(selected)) city.value = selected;
+        else if (selected) return load();
+        listings.replaceChildren(...data.listings.map(artist => card(artist)));
+        status.textContent = data.listings.length
+          ? data.listings.length + (data.listings.length === 1 ? ' artist found' : ' artists found')
+          : 'No approved makeup artists are listed for this selection yet.';
+        manage.hidden = !data.canManage;
+        requests.replaceChildren(...data.requests.map(artist => card(artist, true)));
+        if (data.canManage && !data.requests.length) requests.textContent = 'No listing requests yet.';
+      } catch (error) {
+        if (currentLoad === loadNumber) status.textContent = error.message;
+      }
+    }
+    city.addEventListener('change', load);
+    load();
+  </script>
+</body>
+</html>
