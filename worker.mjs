@@ -36,16 +36,6 @@ return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="v
 export function createWorker(staticAssets={}){return {async fetch(request,env,ctx={waitUntil(){}}){try{const url=new URL(request.url),path=url.pathname,method=request.method;const owner=request.headers.get('oai-authenticated-user-id');
 const webinarResponse=await handleWebinar(request,env,{headers,escape,limitedBody});if(webinarResponse)return webinarResponse;
 const networkResponse=await handleNetwork(request,env,staticAssets);if(networkResponse)return networkResponse;
-const studioPath = /^\/studio\/(?:models|makeup|hair|agencies|hotel(?:\/(?:chef|reception|staff))?)\/?$/.test(path);
-const publicPageAsset = path === '/' ? '/home.html' : studioPath ? '/studio.html' :
-  path === '/collaborations' || path === '/collaborations/' ? '/collaborations.html' : null;
-const publicSupport = ['/studio.css','/home.js','/studios.js','/collaboration-entry.js'].includes(path);
-const publicImage = /^\/assets\/[a-z0-9-]+\.(jpg|png|svg)$/.test(path);
-if (['GET','HEAD'].includes(method)) {
-  if (publicPageAsset && staticAssets[publicPageAsset]) return assetResponse(staticAssets[publicPageAsset],method);
-  if ((publicSupport || publicImage) && staticAssets[path]) return assetResponse(staticAssets[path],method);
-  if (path === '/builder/') return Response.redirect(new URL('/builder'+url.search,url.origin),308);
-}
 if (!owner && staticAssets.guestHomepage && ['GET', 'HEAD'].includes(method)) {
   if (path === '/') {
     const page = new TextDecoder().decode(Uint8Array.from(atob(staticAssets.guestHomepage.body), character => character.charCodeAt(0)));
@@ -154,13 +144,6 @@ let match=path.match(/^\/p\/([a-f0-9-]{36})\/?$/);if(match&&['GET','HEAD'].inclu
 match=path.match(/^\/media\/([a-f0-9-]{36})\/([a-f0-9-]{36})\/([a-f0-9-]{36})$/);if(match&&['GET','HEAD'].includes(method)){const [,id,revision,assetId]=match,row=await publicRecord(env,id);if(!row||row.revision!==revision)fail('This media is not published.',404);const doc=JSON.parse(row.document_json),asset=doc.assets.find(a=>a.id===assetId);if(!asset)fail('Media not found.',404);const key=mediaKey(id,revision,assetId),head=await env.BUCKET.head(key);if(!head)fail('Media not found.',404);let range,status=200;const rangeHeader=request.headers.get('range');if(rangeHeader){const parsed=/^bytes=(\d*)-(\d*)$/.exec(rangeHeader);if(!parsed||(!parsed[1]&&!parsed[2]))return new Response(null,{status:416,headers:{...headers,'content-range':`bytes */${head.size}`}});let start,end;if(!parsed[1]){start=Math.max(0,head.size-Number(parsed[2]));end=head.size-1;}else{start=Number(parsed[1]);end=parsed[2]?Math.min(Number(parsed[2]),head.size-1):head.size-1;}if(start> end||start>=head.size)return new Response(null,{status:416,headers:{...headers,'content-range':`bytes */${head.size}`}});range={offset:start,length:end-start+1};status=206;}const responseHeaders={...headers,'content-type':asset.mime,'accept-ranges':'bytes','content-length':String(range?range.length:head.size),'content-disposition':'inline'};if(range)responseHeaders['content-range']=`bytes ${range.offset}-${range.offset+range.length-1}/${head.size}`;if(method==='HEAD')return new Response(null,{status,headers:responseHeaders});const object=await env.BUCKET.get(key,range?{range}:undefined);if(!object)fail('Media not found.',404);return new Response(object.body,{status,headers:responseHeaders});}
 if(!owner){if(path.startsWith('/api/'))return json({error:'Sign in to publish or manage your portfolio.'},401);return Response.redirect(new URL('/signin-with-chatgpt?return_to='+encodeURIComponent(path+url.search),url.origin),302);}
 if(path.startsWith('/api/')&&!['GET','HEAD'].includes(method)&&request.headers.get('origin')!==url.origin)fail('This request must come from your GLOSS editor.',403);
-if (path === '/builder' && ['GET','HEAD'].includes(method) && staticAssets['/index.html']) {
-  const editor = new TextDecoder().decode(Uint8Array.from(atob(staticAssets['/index.html'].body), character => character.charCodeAt(0)))
-    .replace('</head>','<link rel="stylesheet" href="/editor.css"></head>')
-    .replace('<body>','<body class="builder-mode">')
-    .replace('</body>','<script src="/editor-entry.js"></script></body>');
-  return new Response(method === 'HEAD' ? null : editor,{headers:{...headers,'content-type':'text/html;charset=utf-8'}});
-}
 if(path==='/api/publication'&&method==='GET'){const row=await one(env,'SELECT * FROM portfolios WHERE owner_id = ?',owner);return json(row?{id:row.id,published:row.published===1,url:`${url.origin}/p/${row.id}`,updatedAt:row.updated_at,revision:row.revision}: {published:false});}
 if(path==='/makeup-artists'&&['GET','HEAD'].includes(method)&&staticAssets['/makeup-directory.html']) {
   return assetResponse(staticAssets['/makeup-directory.html'], method);
