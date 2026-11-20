@@ -1,0 +1,23 @@
+body.builder-mode .webinar-takeover,
+body.builder-mode .site-header,
+body.builder-mode main > .hero,
+body.builder-mode .ribbon,
+body.builder-mode #made-for,
+body.builder-mode #looks,
+body.builder-mode .portfolio-manifesto,
+body.builder-mode #how,
+body.builder-mode .simple-home-network,
+body.builder-mode .agency,
+body.builder-mode .faq,
+body.builder-mode main > footer { display: none !important; }
+body.builder-mode .editor-header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.25rem 5%; border-bottom: 1px solid #d8d1cb; }
+body.builder-mode .editor-brand { font-size: 1.8rem; font-weight: 700; letter-spacing: -.07em; }
+body.builder-mode .editor-header nav { display: flex; flex-wrap: wrap; gap: 1.25rem; font-size: .9rem; }
+body.builder-mode .studio { padding-top: 2rem; }
+body.builder-mode .studio-network-links { display: none; }
+body.builder-mode #builder { opacity: 0; }
+body.builder-mode.editor-ready #builder { opacity: 1; }
+body.builder-mode .hotel-role-picker { margin-inline: 0; }
+body.builder-mode #profile-form { font-size: 1rem; }
+body.builder-mode #profile-form label { font-size: .875rem; }
+@media print { body.builder-mode .editor-header { display: none !important; } }
