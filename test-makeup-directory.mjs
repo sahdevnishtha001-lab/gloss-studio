@@ -21,6 +21,7 @@ function request(path, {method = 'GET', user = 'artist', email, body} = {}) {
 
 try {
   assert.equal((await request(path, {user: null})).status, 401);
+  assert.equal((await request('/api/talent/account', {method:'POST',body:{profession:'makeup',name:'Directory test artist',city:'Mumbai',confirm:true}})).status,200);
   const photo = new Uint8Array([137, 80, 78, 71, 13, 10, 26, 10, 1, 2, 3, 4]);
   const start = await request('/api/publish/start', {method: 'POST', body: {
     profile: {name: 'Directory test artist', role: 'Makeup artist', city: 'Mumbai', specialty: 'HD', phone: 'private-test-number'},

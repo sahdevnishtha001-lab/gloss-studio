@@ -1,4 +1,5 @@
 .local-preview/
+.local-talent-preview/
 dist/server/
 dist/.openai/
 outputs/

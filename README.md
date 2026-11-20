@@ -1,6 +1,6 @@
 # GLOSS Studio
 
-GLOSS is a portfolio builder for models, makeup artists, hairstylists, and hotel professionals. A single draft produces a living portfolio with photos and video and a classic résumé that can be printed or saved as a PDF.
+GLOSS is a portfolio builder for models, makeup artists, hairstylists, fashion designers and hotel professionals, with a dedicated agency workspace. A single draft produces a living portfolio with photos and video and a classic résumé that can be printed or saved as a PDF.
 
 [Open the live GLOSS website](https://gloss-studio-editorial.sahdev-nishtha001.chatgpt.site/) · [Explore the sample portfolios](https://gloss-studio-editorial.sahdev-nishtha001.chatgpt.site/#studio-samples)
 
@@ -14,7 +14,7 @@ The samples open without signing in. Use **Build portfolio** on the live site to
 
 ## How it works
 
-- **Portfolio editor.** Separate drafts for each profession, custom collections, image and video uploads, featured work, category filters, and browser-local storage with IndexedDB.
+- **Portfolio editor.** A permanent profession per account, isolated device drafts, custom collections, image and video uploads, featured work, category filters, and browser-local storage with IndexedDB.
 - **Export and publishing.** The editor exports self-contained HTML and a printable résumé. The hosted version can also publish a reviewed selection of work to a stable public URL and unpublish it from the editor.
 - **Industry workflows.** The prototype includes an agency directory, an agency referral dashboard, a makeup artist directory, and webinar registration. Paid checkout, agency payouts, and third-party booking are future integrations.
 
@@ -36,3 +36,13 @@ The frontend uses HTML, CSS, and JavaScript in `dist/`. The Worker entry point i
 ```sh
 node --test test-publishing.mjs test-network.mjs test-simple-network.mjs test-makeup-directory.mjs test-aviation.mjs
 ```
+
+## Account and collaboration journey
+
+Build portfolio opens the profession choices. GLOSS sign-up permanently fixes the account profession; only that profession’s editor and publishing permissions are available. The model studio offers a professional portfolio, location-based concept collaborations and agency affiliations.
+
+Post a concept and the roles needed. Creatives send requests as their registered profession. The organiser approves one person per role; selected people appear in a private shoot studio with profile photos and a shared brief. Members can create referral links, including for photographers, to invite them to apply. The organiser finalises the completed team. Current concepts and requests appear on the user’s call sheet.
+
+Models can send portfolio introductions to enrolled GLOSS agencies. An application is pending until the activated agency account approves it; only then does it appear under enrolled agencies. No production examples, agencies or user applications are seeded. Payments, payouts, chat and third-party bookings are not connected.
+
+The new account and workflow migration is `drizzle/0004_talent_studio.sql`. Run `node test-talent-studio.mjs` for account locks, permissions, location filters, request approvals, team privacy, referrals and agency affiliations. Existing publication and network checks remain available.

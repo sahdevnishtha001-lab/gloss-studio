@@ -8,6 +8,7 @@ export function localBindings(directory){
   if(!sqlite.prepare("SELECT name FROM sqlite_master WHERE type='table' AND name='agency_listings'").get())sqlite.exec(fs.readFileSync('drizzle/0001_agency_network.sql','utf8'));
   if(!sqlite.prepare("SELECT name FROM sqlite_master WHERE type='table' AND name='agency_accounts'").get())sqlite.exec(fs.readFileSync('drizzle/0002_agency_accounts.sql','utf8'));
   if(!sqlite.prepare("SELECT name FROM sqlite_master WHERE type='table' AND name='webinar_registrations'").get())sqlite.exec(fs.readFileSync('drizzle/0003_webinar_registrations.sql','utf8'));
+  if(!sqlite.prepare("SELECT name FROM sqlite_master WHERE type='table' AND name='talent_accounts'").get())sqlite.exec(fs.readFileSync('drizzle/0004_talent_studio.sql','utf8'));
   const objects=new Map(),mediaRoot=directory?path.join(directory,'media'):null;
   if(mediaRoot)fs.mkdirSync(mediaRoot,{recursive:true});
   const objectPath=key=>path.join(mediaRoot,...key.split('/'));
